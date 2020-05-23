@@ -121,6 +121,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 344FE3182479B6DA0011F2CD /* Build configuration list for PBXNativeTarget "SwiftTreeSitter" */;
 			buildPhases = (
+				344FE3272479B7DD0011F2CD /* Build libtree-sitter.a */,
 				344FE2FF2479B6DA0011F2CD /* Headers */,
 				344FE3002479B6DA0011F2CD /* Sources */,
 				344FE3012479B6DA0011F2CD /* Frameworks */,
@@ -207,6 +208,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		344FE3272479B7DD0011F2CD /* Build libtree-sitter.a */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build libtree-sitter.a";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd tree-sitter \n/usr/bin/make\ncp libtree-sitter.a ../SwiftTreeSitter/libtree-sitter.a\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		344FE3002479B6DA0011F2CD /* Sources */ = {
