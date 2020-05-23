@@ -1,0 +1,13 @@
+
+framework module SwiftTreeSitter {
+    umbrella header "SwiftTreeSitter.h"
+
+    explicit module CTreeSitter {
+        private header "api.h"
+        private header "parser.h"
+    }
+
+    export *
+}
+
+
