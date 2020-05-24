@@ -12,14 +12,80 @@ class STSLanguage {
     
     internal let languagePointer: UnsafePointer<TSLanguage>!
     
+    init(pointer: UnsafePointer<TSLanguage>!) {
+        self.languagePointer = pointer
+    }
+    
     var version: uint {
         get {
             return ts_language_version(languagePointer) as uint
         }
     }
     
-    init(pointer: UnsafePointer<TSLanguage>!) {
-        self.languagePointer = pointer
+    var symbolCount: uint {
+        get {
+            return ts_language_symbol_count(languagePointer)
+        }
+    }
+    
+    func symbolName(forId id: uint) -> String? {
+        let cstr = ts_language_symbol_name(languagePointer, uint16(id))
+        if let cstr = cstr {
+            return String(cString: cstr)
+        }
+        
+        return nil
+    }
+    
+    func symbolId(forName name: String, isNamed: Bool) -> uint {
+        let result = name.withCString { (cstr) -> uint16 in
+            ts_language_symbol_for_name(languagePointer, cstr, uint(name.count), isNamed)
+        }
+        
+        return uint(result)
+    }
+    
+    func symbolType(forId id: uint) -> SymbolType {
+        let type = ts_language_symbol_type(languagePointer, uint16(id))
+        switch type {
+        case .init(0):
+            return .regular
+        case .init(1):
+            return .anonymous
+        case .init(2):
+            return .auxillary
+        default:
+            fatalError()
+        }
+    }
+    
+    enum SymbolType {
+        case regular
+        case anonymous
+        case auxillary
+    }
+    
+    var fieldCount: uint {
+        get {
+            return ts_language_field_count(languagePointer)
+        }
+    }
+    
+    func fieldId(forName name: String) -> uint {
+        let result = name.withCString { (cstr) -> uint16 in
+            ts_language_field_id_for_name(languagePointer, cstr, uint(name.count))
+        }
+        
+        return uint(result)
+    }
+    
+    func fieldName(forId id: uint) -> String? {
+        let cstr = ts_language_field_name_for_id(languagePointer, uint16(id))
+        if let cstr = cstr {
+            return String(cString: cstr)
+        }
+        
+        return nil
     }
     
     enum PrebundledLanguage {
