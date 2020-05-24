@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		344FE30E2479B6DA0011F2CD /* SwiftTreeSitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344FE3042479B6DA0011F2CD /* SwiftTreeSitter.framework */; };
 		344FE3132479B6DA0011F2CD /* SwiftTreeSitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344FE3122479B6DA0011F2CD /* SwiftTreeSitterTests.swift */; };
 		344FE3152479B6DA0011F2CD /* SwiftTreeSitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 344FE3072479B6DA0011F2CD /* SwiftTreeSitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		344FE3202479B6F70011F2CD /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344FE31E2479B6F70011F2CD /* Parser.swift */; };
+		344FE3202479B6F70011F2CD /* STSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344FE31E2479B6F70011F2CD /* STSParser.swift */; };
 		344FE3222479B7290011F2CD /* libtree-sitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 344FE3212479B7290011F2CD /* libtree-sitter.a */; };
 		344FE3242479B7700011F2CD /* api.h in Headers */ = {isa = PBXBuildFile; fileRef = 344FE3232479B7700011F2CD /* api.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		344FE3262479B7750011F2CD /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 344FE3252479B7750011F2CD /* parser.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		344FE3292479BE6D0011F2CD /* STSTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344FE3282479BE6D0011F2CD /* STSTree.swift */; };
+		344FE3342479C2F20011F2CD /* SwiftTreeSitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344FE3042479B6DA0011F2CD /* SwiftTreeSitter.framework */; };
+		34B6362A247A5CBF000657AB /* STSLanguageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B63629247A5CBF000657AB /* STSLanguageLoader.swift */; };
+		34B6362C247A875A000657AB /* parserJSON.bundle in Embed parser bundles */ = {isa = PBXBuildFile; fileRef = 34B6362B247A8752000657AB /* parserJSON.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		344FE30F2479B6DA0011F2CD /* PBXContainerItemProxy */ = {
+		344FE3322479C2C30011F2CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 344FE2FB2479B6DA0011F2CD /* Project object */;
 			proxyType = 1;
@@ -26,6 +29,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		344FE3482479C85E0011F2CD /* Embed parser bundles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = parsers;
+			dstSubfolderSpec = 13;
+			files = (
+				34B6362C247A875A000657AB /* parserJSON.bundle in Embed parser bundles */,
+			);
+			name = "Embed parser bundles";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		344FE3042479B6DA0011F2CD /* SwiftTreeSitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftTreeSitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		344FE3072479B6DA0011F2CD /* SwiftTreeSitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftTreeSitter.h; sourceTree = "<group>"; };
@@ -33,11 +50,14 @@
 		344FE30D2479B6DA0011F2CD /* SwiftTreeSitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTreeSitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		344FE3122479B6DA0011F2CD /* SwiftTreeSitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTreeSitterTests.swift; sourceTree = "<group>"; };
 		344FE3142479B6DA0011F2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		344FE31E2479B6F70011F2CD /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		344FE31E2479B6F70011F2CD /* STSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STSParser.swift; sourceTree = "<group>"; };
 		344FE31F2479B6F70011F2CD /* SwiftTreeSitter.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = SwiftTreeSitter.modulemap; sourceTree = "<group>"; };
 		344FE3212479B7290011F2CD /* libtree-sitter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libtree-sitter.a"; sourceTree = "<group>"; };
 		344FE3232479B7700011F2CD /* api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = api.h; path = "tree-sitter/lib/include/tree_sitter/api.h"; sourceTree = "<group>"; };
 		344FE3252479B7750011F2CD /* parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = parser.h; path = "tree-sitter/lib/include/tree_sitter/parser.h"; sourceTree = "<group>"; };
+		344FE3282479BE6D0011F2CD /* STSTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSTree.swift; sourceTree = "<group>"; };
+		34B63629247A5CBF000657AB /* STSLanguageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSLanguageLoader.swift; sourceTree = "<group>"; };
+		34B6362B247A8752000657AB /* parserJSON.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = parserJSON.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				344FE30E2479B6DA0011F2CD /* SwiftTreeSitter.framework in Frameworks */,
+				344FE3342479C2F20011F2CD /* SwiftTreeSitter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +88,7 @@
 				344FE3062479B6DA0011F2CD /* SwiftTreeSitter */,
 				344FE3112479B6DA0011F2CD /* SwiftTreeSitterTests */,
 				344FE3052479B6DA0011F2CD /* Products */,
+				344FE3432479C7C00011F2CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,11 +104,14 @@
 		344FE3062479B6DA0011F2CD /* SwiftTreeSitter */ = {
 			isa = PBXGroup;
 			children = (
+				344FE33F2479C73B0011F2CD /* parsers */,
 				344FE3212479B7290011F2CD /* libtree-sitter.a */,
 				344FE31F2479B6F70011F2CD /* SwiftTreeSitter.modulemap */,
 				344FE3072479B6DA0011F2CD /* SwiftTreeSitter.h */,
-				344FE31E2479B6F70011F2CD /* Parser.swift */,
+				344FE31E2479B6F70011F2CD /* STSParser.swift */,
+				344FE3282479BE6D0011F2CD /* STSTree.swift */,
 				344FE3082479B6DA0011F2CD /* Info.plist */,
+				34B63629247A5CBF000657AB /* STSLanguageLoader.swift */,
 			);
 			path = SwiftTreeSitter;
 			sourceTree = "<group>";
@@ -99,6 +123,21 @@
 				344FE3142479B6DA0011F2CD /* Info.plist */,
 			);
 			path = SwiftTreeSitterTests;
+			sourceTree = "<group>";
+		};
+		344FE33F2479C73B0011F2CD /* parsers */ = {
+			isa = PBXGroup;
+			children = (
+				34B6362B247A8752000657AB /* parserJSON.bundle */,
+			);
+			path = parsers;
+			sourceTree = "<group>";
+		};
+		344FE3432479C7C00011F2CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +164,7 @@
 				344FE2FF2479B6DA0011F2CD /* Headers */,
 				344FE3002479B6DA0011F2CD /* Sources */,
 				344FE3012479B6DA0011F2CD /* Frameworks */,
-				344FE3022479B6DA0011F2CD /* Resources */,
+				344FE3482479C85E0011F2CD /* Embed parser bundles */,
 			);
 			buildRules = (
 			);
@@ -147,7 +186,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				344FE3102479B6DA0011F2CD /* PBXTargetDependency */,
+				344FE3332479C2C30011F2CD /* PBXTargetDependency */,
 			);
 			name = SwiftTreeSitterTests;
 			productName = SwiftTreeSitterTests;
@@ -193,13 +232,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		344FE3022479B6DA0011F2CD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		344FE30B2479B6DA0011F2CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,7 +267,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				344FE3202479B6F70011F2CD /* Parser.swift in Sources */,
+				344FE3292479BE6D0011F2CD /* STSTree.swift in Sources */,
+				34B6362A247A5CBF000657AB /* STSLanguageLoader.swift in Sources */,
+				344FE3202479B6F70011F2CD /* STSParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,10 +284,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		344FE3102479B6DA0011F2CD /* PBXTargetDependency */ = {
+		344FE3332479C2C30011F2CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 344FE3032479B6DA0011F2CD /* SwiftTreeSitter */;
-			targetProxy = 344FE30F2479B6DA0011F2CD /* PBXContainerItemProxy */;
+			targetProxy = 344FE3322479C2C30011F2CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -381,9 +415,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = G4AMKXM324;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -391,12 +427,15 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
+					"@executable_path/Frameworks",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SwiftTreeSitter",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SwiftTreeSitter/parsers",
 				);
 				MODULEMAP_FILE = $SRCROOT/SwiftTreeSitter/SwiftTreeSitter.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter;
@@ -411,9 +450,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = G4AMKXM324;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -421,12 +462,15 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
+					"@executable_path/Frameworks",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SwiftTreeSitter",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SwiftTreeSitter/parsers",
 				);
 				MODULEMAP_FILE = $SRCROOT/SwiftTreeSitter/SwiftTreeSitter.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter;
@@ -448,6 +492,11 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SwiftTreeSitter/parsers",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -465,6 +514,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SwiftTreeSitter/parsers",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

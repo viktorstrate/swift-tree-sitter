@@ -19,9 +19,14 @@ class SwiftTreeSitterTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testParserInit() throws {
+        let parser = STSParser()
+        
+        print("Parser language before: \(parser.language)")
+        
+        parser.language = loadJsonParser()
+        
+        print("Parser language: \(parser.language)")
     }
 
     func testPerformanceExample() throws {

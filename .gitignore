@@ -1,0 +1,7 @@
+# Is build from source
+SwiftTreeSitter/libtree-sitter.a
+
+## User settings
+xcuserdata/
+
+.DS_Store
