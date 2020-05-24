@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-class STSTreeCursor {
+public class STSTreeCursor {
     
     // Keep a reference to the cursors's tree,
     // to prevent it from being deleted prematurly
@@ -17,7 +17,7 @@ class STSTreeCursor {
     internal var tsTreeCursor: TSTreeCursor
     
     /// Tree cursor's current node
-    var currentNode: STSNode {
+    public var currentNode: STSNode {
         get {
             let tsNode = withUnsafePointer(to: &self.tsTreeCursor) { (cursorPointer) -> TSNode in
                 ts_tree_cursor_current_node(cursorPointer)
@@ -26,7 +26,7 @@ class STSTreeCursor {
         }
     }
     
-    var fieldName: String? {
+    public var fieldName: String? {
         get {
             
             let cstr = withUnsafePointer(to: &self.tsTreeCursor) { (cursorPointer) -> UnsafePointer<Int8>? in
@@ -40,7 +40,7 @@ class STSTreeCursor {
         }
     }
     
-    var fieldId: uint16 {
+    public var fieldId: uint16 {
         get {
             withUnsafePointer(to: &self.tsTreeCursor) { (cursorPointer) -> uint16 in
                 ts_tree_cursor_current_field_id(cursorPointer)
@@ -48,7 +48,7 @@ class STSTreeCursor {
         }
     }
     
-    init(tree: STSTree, node: STSNode) {
+    public init(tree: STSTree, node: STSNode) {
         self.treeRef = tree
         self.tsTreeCursor = ts_tree_cursor_new(node.tsNode)
     }
@@ -59,31 +59,31 @@ class STSTreeCursor {
         }
     }
 
-    func reset(node: STSNode) {
+    public func reset(node: STSNode) {
         withUnsafeMutablePointer(to: &self.tsTreeCursor) { (cursorPointer) -> Void in
             ts_tree_cursor_reset(cursorPointer, node.tsNode)
         }
     }
     
-    func gotoFirstChild() -> Bool {
+    public func gotoFirstChild() -> Bool {
         return withUnsafeMutablePointer(to: &self.tsTreeCursor) { (cursorPointer) -> Bool in
             ts_tree_cursor_goto_first_child(cursorPointer)
         }
     }
     
-    func gotoParent() -> Bool {
+    public func gotoParent() -> Bool {
         return withUnsafeMutablePointer(to: &self.tsTreeCursor) { (cursorPointer) -> Bool in
             ts_tree_cursor_goto_parent(cursorPointer)
         }
     }
 
-    func gotoNextSibling() -> Bool {
+    public func gotoNextSibling() -> Bool {
         return withUnsafeMutablePointer(to: &self.tsTreeCursor) { (cursorPointer) -> Bool in
             ts_tree_cursor_goto_next_sibling(cursorPointer)
         }
     }
 
-    func gotoFirstChildForByte(index: uint) -> uint? {
+    public func gotoFirstChildForByte(index: uint) -> uint? {
         let result = withUnsafeMutablePointer(to: &self.tsTreeCursor) { (cursorPointer) -> Int64 in
             ts_tree_cursor_goto_first_child_for_byte(cursorPointer, index)
         }

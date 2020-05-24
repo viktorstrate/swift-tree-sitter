@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-class STSNode {
+public class STSNode {
     
     internal let tsNode: TSNode
     

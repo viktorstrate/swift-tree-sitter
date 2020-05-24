@@ -9,17 +9,17 @@
 import SwiftTreeSitter.CTreeSitter
 
 /// A tree that represents the syntactic structure of a source code file.
-class STSTree {
+public class STSTree {
     
     internal let treePointer: OpaquePointer
     
-    var rootNode: STSNode {
+    public var rootNode: STSNode {
         get {
             STSNode(from: ts_tree_root_node(treePointer))
         }
     }
     
-    var language: STSLanguage {
+    public var language: STSLanguage {
         get {
             let languagePointer = ts_tree_language(treePointer)
             return STSLanguage(pointer: languagePointer)
@@ -35,7 +35,7 @@ class STSTree {
         ts_tree_delete(treePointer)
     }
     
-    func walk() -> STSTreeCursor {
+    public func walk() -> STSTreeCursor {
         return STSTreeCursor(tree: self, node: self.rootNode)
     }
     

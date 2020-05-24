@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-class STSLanguage {
+public class STSLanguage {
     
     internal let languagePointer: UnsafePointer<TSLanguage>!
     
@@ -16,19 +16,19 @@ class STSLanguage {
         self.languagePointer = pointer
     }
     
-    var version: uint {
+    public var version: uint {
         get {
             return ts_language_version(languagePointer) as uint
         }
     }
     
-    var symbolCount: uint {
+    public var symbolCount: uint {
         get {
             return ts_language_symbol_count(languagePointer)
         }
     }
     
-    func symbolName(forId id: uint) -> String? {
+    public func symbolName(forId id: uint) -> String? {
         let cstr = ts_language_symbol_name(languagePointer, uint16(id))
         if let cstr = cstr {
             return String(cString: cstr)
@@ -37,7 +37,7 @@ class STSLanguage {
         return nil
     }
     
-    func symbolId(forName name: String, isNamed: Bool) -> uint {
+    public func symbolId(forName name: String, isNamed: Bool) -> uint {
         let result = name.withCString { (cstr) -> uint16 in
             ts_language_symbol_for_name(languagePointer, cstr, uint(name.count), isNamed)
         }
@@ -45,7 +45,7 @@ class STSLanguage {
         return uint(result)
     }
     
-    func symbolType(forId id: uint) -> SymbolType {
+    public func symbolType(forId id: uint) -> SymbolType {
         let type = ts_language_symbol_type(languagePointer, uint16(id))
         switch type {
         case .init(0):
@@ -59,19 +59,19 @@ class STSLanguage {
         }
     }
     
-    enum SymbolType {
+    public enum SymbolType {
         case regular
         case anonymous
         case auxillary
     }
     
-    var fieldCount: uint {
+    public var fieldCount: uint {
         get {
             return ts_language_field_count(languagePointer)
         }
     }
     
-    func fieldId(forName name: String) -> uint {
+    public func fieldId(forName name: String) -> uint {
         let result = name.withCString { (cstr) -> uint16 in
             ts_language_field_id_for_name(languagePointer, cstr, uint(name.count))
         }
@@ -79,7 +79,7 @@ class STSLanguage {
         return uint(result)
     }
     
-    func fieldName(forId id: uint) -> String? {
+    public func fieldName(forId id: uint) -> String? {
         let cstr = ts_language_field_name_for_id(languagePointer, uint16(id))
         if let cstr = cstr {
             return String(cString: cstr)
@@ -88,12 +88,12 @@ class STSLanguage {
         return nil
     }
     
-    enum PrebundledLanguage: String {
+    public enum PrebundledLanguage: String {
         case json = "json"
         case javascript = "javascript"
     }
     
-    static func loadLanguage(preBundled: PrebundledLanguage) -> STSLanguage {
+    public static func loadLanguage(preBundled: PrebundledLanguage) -> STSLanguage {
         let languageName = preBundled.rawValue
         
         let parserBundlePath = Bundle(for: STSParser.self).path(forResource: languageName, ofType: "bundle", inDirectory: "Plugins/languages")!
@@ -103,7 +103,7 @@ class STSLanguage {
         return loadLanguage(path: parserBundlePath, functionName: functionName)
     }
     
-    static func loadLanguage(path: String, functionName: String) -> STSLanguage {
+    public static func loadLanguage(path: String, functionName: String) -> STSLanguage {
         
         let bundleURL = CFURLCreateWithFileSystemPath(
             kCFAllocatorDefault,
