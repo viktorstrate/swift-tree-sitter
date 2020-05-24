@@ -6,8 +6,18 @@
 //  Copyright © 2020 viktorstrate. All rights reserved.
 //
 
+import SwiftTreeSitter.CTreeSitter
+
+/// A tree that represents the syntactic structure of a source code file.
 class STSTree {
-    fileprivate let treePointer: OpaquePointer
+    
+    internal let treePointer: OpaquePointer
+    
+    var rootNode: STSNode {
+        get {
+            STSNode(from: ts_tree_root_node(treePointer))
+        }
+    }
     
     var language: STSLanguage {
         get {
@@ -21,7 +31,12 @@ class STSTree {
     }
     
     deinit {
+        print("tree deleted")
         ts_tree_delete(treePointer)
+    }
+    
+    func walk() -> STSTreeCursor {
+        return STSTreeCursor(tree: self, node: self.rootNode)
     }
     
 }

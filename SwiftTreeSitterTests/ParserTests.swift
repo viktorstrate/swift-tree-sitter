@@ -28,8 +28,8 @@ class ParserTests: XCTestCase {
     }
     
     func testParseString() throws {
-        let tree = try! parser.parse(string: "[1,2,3]")
-        print("Tree lang version \(tree.language.version)")
+        let tree = try! parser.parse(string: "[1,2,3]", oldTree: nil)
+        XCTAssertEqual(tree.rootNode.type, "document")
     }
 
 }

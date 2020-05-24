@@ -8,9 +8,10 @@
 
 import SwiftTreeSitter.CTreeSitter
 
+/// Used to produce `STSTree`s from source code
 class STSParser {
     
-    fileprivate var parserPointer: OpaquePointer!
+    internal var parserPointer: OpaquePointer!
     
     var language: STSLanguage? {
         set(newValue) {
@@ -30,13 +31,15 @@ class STSParser {
     }
     
     deinit {
+        print("parser deleted")
         ts_parser_delete(parserPointer)
     }
     
-    func parse(string: String) throws -> STSTree {
+    /// Parses a slice of UTF-8 text
+    func parse(string: String, oldTree: STSTree?) throws -> STSTree {
         
         let treePointer = string.withCString { (stringPtr) -> OpaquePointer? in
-            return ts_parser_parse_string(parserPointer, nil, stringPtr, UInt32(string.count))
+            return ts_parser_parse_string(parserPointer, oldTree?.treePointer, stringPtr, UInt32(string.count))
         }
         
         if treePointer == nil {
@@ -47,6 +50,14 @@ class STSParser {
         
         
         return tree
+    }
+    
+    func printDotGraphs(file: FileHandle) {
+        ts_parser_print_dot_graphs(self.parserPointer, file.fileDescriptor)
+    }
+    
+    func stopPrintingDotGraphs() {
+        ts_parser_print_dot_graphs(self.parserPointer, -1)
     }
     
     enum ParserError: Error {

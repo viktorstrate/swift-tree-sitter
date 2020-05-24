@@ -6,11 +6,11 @@
 //  Copyright © 2020 viktorstrate. All rights reserved.
 //
 
-import Foundation
+import SwiftTreeSitter.CTreeSitter
 
 class STSLanguage {
     
-    let languagePointer: UnsafePointer<TSLanguage>!
+    internal let languagePointer: UnsafePointer<TSLanguage>!
     
     var version: uint {
         get {
