@@ -21,6 +21,7 @@
 		34B63645247AB2D2000657AB /* STSTreeCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B63644247AB2D1000657AB /* STSTreeCursor.swift */; };
 		34B63647247AB68C000657AB /* TreeCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B63646247AB68C000657AB /* TreeCursorTests.swift */; };
 		34B63649247AD0A8000657AB /* LanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B63648247AD0A8000657AB /* LanguageTests.swift */; };
+		34B63666247ADCB9000657AB /* LanguageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B63665247ADCB9000657AB /* LanguageLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		34B63644247AB2D1000657AB /* STSTreeCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSTreeCursor.swift; sourceTree = "<group>"; };
 		34B63646247AB68C000657AB /* TreeCursorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeCursorTests.swift; sourceTree = "<group>"; };
 		34B63648247AD0A8000657AB /* LanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTests.swift; sourceTree = "<group>"; };
+		34B63665247ADCB9000657AB /* LanguageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				344FE3122479B6DA0011F2CD /* ParserTests.swift */,
 				34B63646247AB68C000657AB /* TreeCursorTests.swift */,
 				34B63648247AD0A8000657AB /* LanguageTests.swift */,
+				34B63665247ADCB9000657AB /* LanguageLoaderTests.swift */,
 			);
 			path = SwiftTreeSitterTests;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			files = (
 				344FE3132479B6DA0011F2CD /* ParserTests.swift in Sources */,
 				34B63649247AD0A8000657AB /* LanguageTests.swift in Sources */,
+				34B63666247ADCB9000657AB /* LanguageLoaderTests.swift in Sources */,
 				34B63647247AB68C000657AB /* TreeCursorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

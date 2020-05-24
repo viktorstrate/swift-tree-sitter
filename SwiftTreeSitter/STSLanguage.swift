@@ -88,14 +88,19 @@ class STSLanguage {
         return nil
     }
     
-    enum PrebundledLanguage {
-        case json
+    enum PrebundledLanguage: String {
+        case json = "json"
+        case javascript = "javascript"
     }
     
     static func loadLanguage(preBundled: PrebundledLanguage) -> STSLanguage {
-        let parserBundlePath = Bundle(for: STSParser.self).path(forResource: "json", ofType: "bundle", inDirectory: "Plugins/languages")!
+        let languageName = preBundled.rawValue
         
-        return loadLanguage(path: parserBundlePath, functionName: "tree_sitter_json")
+        let parserBundlePath = Bundle(for: STSParser.self).path(forResource: languageName, ofType: "bundle", inDirectory: "Plugins/languages")!
+        
+        let functionName = Bundle(path: parserBundlePath)!.infoDictionary!["STSLoadFunction"] as! String
+        
+        return loadLanguage(path: parserBundlePath, functionName: functionName)
     }
     
     static func loadLanguage(path: String, functionName: String) -> STSLanguage {
