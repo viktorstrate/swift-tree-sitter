@@ -25,9 +25,12 @@ class TreeCursorTests: XCTestCase {
         print("Goto functions")
         print("Root field node: \(cursor.currentNode.namedChildCount)")
         
-        while cursor.gotoFirstChild() {
-            print("Field name: \(cursor.fieldName)")
-        }
+        XCTAssertEqual(cursor.gotoFirstChild(), true)
+        XCTAssertEqual(cursor.currentNode.type, "array")
+        
+        XCTAssertEqual(cursor.gotoFirstChild(), true)
+        XCTAssertEqual(cursor.gotoNextSibling(), true)
+        XCTAssertEqual(cursor.currentNode.type, "number")
     }
     
 }
