@@ -7,5 +7,21 @@
 //
 
 class STSTree {
+    fileprivate let treePointer: OpaquePointer
+    
+    var language: STSLanguage {
+        get {
+            let languagePointer = ts_tree_language(treePointer)
+            return STSLanguage(pointer: languagePointer)
+        }
+    }
+    
+    init(pointer: OpaquePointer) {
+        self.treePointer = pointer
+    }
+    
+    deinit {
+        ts_tree_delete(treePointer)
+    }
     
 }

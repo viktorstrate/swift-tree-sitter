@@ -9,31 +9,27 @@
 import XCTest
 @testable import SwiftTreeSitter
 
-class SwiftTreeSitterTests: XCTestCase {
+class ParserTests: XCTestCase {
 
+    private var parser: STSParser!
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        parser = STSParser()
+        parser.language = STSLanguage.loadLanguage(preBundled: .json)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testParserInit() throws {
-        let parser = STSParser()
-        
-        print("Parser language before: \(parser.language)")
-        
-        parser.language = loadJsonParser()
-        
-        print("Parser language: \(parser.language)")
+    func testParserLoadLanguage() throws {
+        XCTAssertNotNil(parser.language)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testParseString() throws {
+        let tree = try! parser.parse(string: "[1,2,3]")
+        print("Tree lang version \(tree.language.version)")
     }
 
 }
