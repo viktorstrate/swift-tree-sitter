@@ -26,6 +26,9 @@
 		34B6369C247D5E62000657AB /* STSQueryCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6369B247D5E62000657AB /* STSQueryCursor.swift */; };
 		34B6369E247D5F5C000657AB /* STSQueryCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6369D247D5F5C000657AB /* STSQueryCapture.swift */; };
 		34B636A0247D5FA3000657AB /* STSQueryMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6369F247D5FA3000657AB /* STSQueryMatch.swift */; };
+		34B636A2247D74CD000657AB /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B636A1247D74CD000657AB /* QueryTests.swift */; };
+		34B636A4247D785C000657AB /* QueryCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B636A3247D785C000657AB /* QueryCursorTests.swift */; };
+		34B636A6247D9080000657AB /* STSPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B636A5247D9080000657AB /* STSPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		34B6369B247D5E62000657AB /* STSQueryCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSQueryCursor.swift; sourceTree = "<group>"; };
 		34B6369D247D5F5C000657AB /* STSQueryCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSQueryCapture.swift; sourceTree = "<group>"; };
 		34B6369F247D5FA3000657AB /* STSQueryMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSQueryMatch.swift; sourceTree = "<group>"; };
+		34B636A1247D74CD000657AB /* QueryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
+		34B636A3247D785C000657AB /* QueryCursorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCursorTests.swift; sourceTree = "<group>"; };
+		34B636A5247D9080000657AB /* STSPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,7 @@
 				34B6369B247D5E62000657AB /* STSQueryCursor.swift */,
 				34B6369D247D5F5C000657AB /* STSQueryCapture.swift */,
 				34B6369F247D5FA3000657AB /* STSQueryMatch.swift */,
+				34B636A5247D9080000657AB /* STSPoint.swift */,
 			);
 			path = SwiftTreeSitter;
 			sourceTree = "<group>";
@@ -147,6 +154,8 @@
 				34B63646247AB68C000657AB /* TreeCursorTests.swift */,
 				34B63648247AD0A8000657AB /* LanguageTests.swift */,
 				34B63665247ADCB9000657AB /* LanguageLoaderTests.swift */,
+				34B636A1247D74CD000657AB /* QueryTests.swift */,
+				34B636A3247D785C000657AB /* QueryCursorTests.swift */,
 			);
 			path = SwiftTreeSitterTests;
 			sourceTree = "<group>";
@@ -281,6 +290,7 @@
 				34B63643247AADE9000657AB /* STSNode.swift in Sources */,
 				344FE3292479BE6D0011F2CD /* STSTree.swift in Sources */,
 				34B63645247AB2D2000657AB /* STSTreeCursor.swift in Sources */,
+				34B636A6247D9080000657AB /* STSPoint.swift in Sources */,
 				34B6369A247D5208000657AB /* STSQuery.swift in Sources */,
 				34B6369E247D5F5C000657AB /* STSQueryCapture.swift in Sources */,
 				34B6362A247A5CBF000657AB /* STSLanguage.swift in Sources */,
@@ -296,7 +306,9 @@
 			files = (
 				344FE3132479B6DA0011F2CD /* ParserTests.swift in Sources */,
 				34B63649247AD0A8000657AB /* LanguageTests.swift in Sources */,
+				34B636A2247D74CD000657AB /* QueryTests.swift in Sources */,
 				34B63666247ADCB9000657AB /* LanguageLoaderTests.swift in Sources */,
+				34B636A4247D785C000657AB /* QueryCursorTests.swift in Sources */,
 				34B63647247AB68C000657AB /* TreeCursorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

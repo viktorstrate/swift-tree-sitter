@@ -10,7 +10,7 @@ import SwiftTreeSitter.CTreeSitter
 
 public class STSQueryCursor {
     
-    let cursorPointer: OpaquePointer!
+    internal let cursorPointer: OpaquePointer!
     
     public init() {
         self.cursorPointer = ts_query_cursor_new()
@@ -18,6 +18,15 @@ public class STSQueryCursor {
     
     deinit {
         ts_query_cursor_delete(cursorPointer)
+    }
+    
+    /// Set the range of bytes in which the query will be executed
+    public func setByteRange(from start: uint, to end: uint) {
+        ts_query_cursor_set_byte_range(cursorPointer, start, end)
+    }
+    
+    public func setPointRange(from start: STSPoint, to end: STSPoint) {
+        ts_query_cursor_set_point_range(cursorPointer, start.tsPoint, end.tsPoint)
     }
     
     public func matches(query: STSQuery, onNode node: STSNode) -> MatchIterator {

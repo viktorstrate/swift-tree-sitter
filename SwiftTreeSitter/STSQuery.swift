@@ -54,22 +54,45 @@ public class STSQuery {
         ts_query_delete(queryPointer)
     }
     
+    /// Number of patterns the query contains
     var patternCount: uint {
         get {
             ts_query_pattern_count(queryPointer)
         }
     }
     
+    /// Number of captures the query contains
     var captureCount: uint {
         get {
             ts_query_capture_count(queryPointer)
         }
     }
     
+    func captureName(forId id: uint) -> String {
+        let lengthPtr = UnsafeMutablePointer<UInt32>.allocate(capacity: 1)
+        defer {
+            lengthPtr.deallocate()
+        }
+        
+        let cstr = ts_query_capture_name_for_id(queryPointer, id, lengthPtr)
+        return String(cString: cstr!)
+    }
+    
+    /// Number of string literals the query contains
     var stringCount: uint {
         get {
             ts_query_string_count(queryPointer)
         }
+    }
+    
+    func stringValue(forId id: uint) -> String {
+        let lengthPtr = UnsafeMutablePointer<UInt32>.allocate(capacity: 1)
+        defer {
+            lengthPtr.deallocate()
+        }
+        
+        let cstr = ts_query_string_value_for_id(queryPointer, id, lengthPtr)
+        return String(cString: cstr!)
     }
     
     func startByteForPattern(index: uint) -> uint {
