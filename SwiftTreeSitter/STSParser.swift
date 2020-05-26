@@ -63,17 +63,74 @@ public class STSParser {
     
     /// Parses a slice of UTF-8 text
     public func parse(string: String, oldTree: STSTree?) -> STSTree? {
-        
         let treePointer = string.withCString { (stringPtr) -> OpaquePointer? in
             return ts_parser_parse_string(parserPointer, oldTree?.treePointer, stringPtr, UInt32(string.count))
         }
         
-        if treePointer == nil {
-            return nil
+        if let treePointer = treePointer {
+            return STSTree(pointer: treePointer)
         }
         
-        let tree = STSTree(pointer: treePointer!)
-        return tree
+        return nil
+    }
+    
+    public typealias ParserCallback = ((_ byteIndex: uint, _ position: STSPoint) -> [Int8])
+    typealias RawParserCallback = ((UnsafeMutableRawPointer?, UInt32, TSPoint, UnsafeMutablePointer<UInt32>?) -> UnsafePointer<Int8>?)
+    
+    public func parse(callback: @escaping ParserCallback, oldTree: STSTree?) -> STSTree? {
+        
+        struct Payload {
+            var callback: ParserCallback
+            var bytePointes: [UnsafePointer<Int8>] = []
+        }
+        
+        var payload = Payload(callback: callback)
+        
+        let tsInput = withUnsafeMutablePointer(to: &payload) { (callbackPtr) -> TSInput in
+            return TSInput(
+                payload: callbackPtr,
+                read: { (
+                    payload: UnsafeMutableRawPointer?,
+                    byteIndex: UInt32,
+                    position: TSPoint,
+                    bytesRead: UnsafeMutablePointer<UInt32>?) -> UnsafePointer<Int8>? in
+                    
+                    
+                    var payload = payload!.assumingMemoryBound(to: Payload.self).pointee
+                    
+                    let bytes = payload.callback(byteIndex, STSPoint(from: position))
+                    assert(!(bytes.count > 1 && bytes.last == 0),
+                           "parser callback bytes should not be null terminated")
+                    
+                    bytesRead!.initialize(to: UInt32(bytes.count))
+                    
+                    // Allocate pointer and copy bytes
+                    let resultBytesPtr = UnsafeMutablePointer<Int8>.allocate(capacity: bytes.count)
+                    for i in 0..<bytes.count {
+                        (resultBytesPtr+i).initialize(to: bytes[i])
+                    }
+                    
+                    payload.bytePointes.append(resultBytesPtr)
+                    
+                    return UnsafePointer(resultBytesPtr)
+                    
+                },
+                encoding: TSInputEncoding(0)
+            )
+        }
+        
+        let treePointer = ts_parser_parse(parserPointer, oldTree?.treePointer, tsInput)
+        
+        // Release allocated bytes
+        for pointer in payload.bytePointes {
+            pointer.deallocate()
+        }
+        
+        if let treePointer = treePointer {
+            return STSTree(pointer: treePointer)
+        }
+        
+        return nil
     }
     
     public func printDotGraphs(file: FileHandle) {

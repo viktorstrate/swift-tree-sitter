@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>STSLoadFunction</key>
+<string>tree_sitter_java</string>
+<key>CFBundleExecutable</key>
+<string>java</string>
+<key>CFBundleIdentifier</key>
+<string>io.github.viktorstrate.SwiftTreeSitter.language.java</string>
+<key>CFBundleName</key>
+<string>java</string>
+<key>CFBundleShortVersionString</key>
+<string>0.16.0</string>
+<key>CFBundleSupportedPlatforms</key>
+<array>
+<string>MacOSX</string>
+</array>
+</dict>
+</plist>

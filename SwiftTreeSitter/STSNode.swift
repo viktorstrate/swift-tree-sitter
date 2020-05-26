@@ -10,7 +10,7 @@ import SwiftTreeSitter.CTreeSitter
 
 public class STSNode: Equatable {
     
-    internal let tsNode: TSNode
+    internal var tsNode: TSNode
     
     init(from tsNode: TSNode) {
         self.tsNode = tsNode
@@ -21,27 +21,27 @@ public class STSNode: Equatable {
     }
     
     /// A numeric id for this node that is unique.
-    var id: uint {
+    public var id: uint {
         get {
             tsNode.id.load(as: uint.self)
         }
     }
     
-    var type: String {
+    public var type: String {
         get {
             let cstr = ts_node_type(tsNode)!
             return String(cString: cstr)
         }
     }
     
-    var typeId: uint16 {
+    public var typeId: uint16 {
         get {
             let symbol = ts_node_symbol(tsNode)
             return symbol
         }
     }
     
-    var sExpressionString: String? {
+    public var sExpressionString: String? {
         get {
             let cstr = ts_node_string(tsNode)
             if let cstr = cstr {
@@ -52,79 +52,79 @@ public class STSNode: Equatable {
         }
     }
     
-    var isNull: Bool {
+    public var isNull: Bool {
         get {
             ts_node_is_null(tsNode)
         }
     }
     
-    var isNamed: Bool {
+    public var isNamed: Bool {
         get {
             ts_node_is_named(tsNode)
         }
     }
     
-    var isExtra: Bool {
+    public var isExtra: Bool {
         get {
             ts_node_is_extra(tsNode)
         }
     }
     
-    var hasChanges: Bool {
+    public var hasChanges: Bool {
         get {
             ts_node_has_changes(tsNode)
         }
     }
     
-    var hasError: Bool {
+    public var hasError: Bool {
         get {
             ts_node_has_error(tsNode)
         }
     }
     
-    var isMissing: Bool {
+    public var isMissing: Bool {
         get {
             ts_node_is_missing(tsNode)
         }
     }
     
-    var startByte: uint {
+    public var startByte: uint {
         get {
             ts_node_start_byte(tsNode)
         }
     }
     
-    var endByte: uint {
+    public var endByte: uint {
         get {
             ts_node_end_byte(tsNode)
         }
     }
     
-    var byteRange: Range<uint> {
+    public var byteRange: Range<uint> {
         get {
             startByte ..< endByte
         }
     }
     
-    var startPoint: STSPoint {
+    public var startPoint: STSPoint {
         get {
             STSPoint(tsPoint: ts_node_start_point(tsNode))
         }
     }
     
-    var endPoint: STSPoint {
+    public var endPoint: STSPoint {
         get {
             STSPoint(tsPoint: ts_node_end_point(tsNode))
         }
     }
     
-    var childCount: uint {
+    public var childCount: uint {
         get {
             ts_node_child_count(tsNode)
         }
     }
     
-    func child(index: uint) -> STSNode? {
+    public func child(index: uint) -> STSNode? {
         
         if index < 0 || index >= childCount {
             return nil
@@ -134,13 +134,13 @@ public class STSNode: Equatable {
         return STSNode(from: child)
     }
     
-    var namedChildCount: uint {
+    public var namedChildCount: uint {
         get {
             ts_node_named_child_count(tsNode)
         }
     }
     
-    func namedChild(index: uint) -> STSNode? {
+    public func namedChild(index: uint) -> STSNode? {
         
         if index < 0 || index >= namedChildCount {
             return nil
@@ -150,10 +150,18 @@ public class STSNode: Equatable {
         return STSNode(from: child)
     }
     
+    public func edit(_ inputEdit: STSInputEdit) {
+        withUnsafePointer(to: inputEdit.tsInputEdit()) { (inputEditPtr) -> Void in
+            withUnsafeMutablePointer(to: &tsNode) { (tsNodePtr) -> Void in
+                ts_node_edit(tsNodePtr, inputEditPtr)
+            }
+        }
+    }
+    
 }
 
 extension STSNode {
-    struct STSPoint {
+    public struct STSPoint {
         let row: uint
         let column: uint
         

@@ -29,6 +29,7 @@
 		34B636A2247D74CD000657AB /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B636A1247D74CD000657AB /* QueryTests.swift */; };
 		34B636A4247D785C000657AB /* QueryCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B636A3247D785C000657AB /* QueryCursorTests.swift */; };
 		34B636A6247D9080000657AB /* STSPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B636A5247D9080000657AB /* STSPoint.swift */; };
+		34B636A8247DA38B000657AB /* STSInputEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B636A7247DA38B000657AB /* STSInputEdit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		34B636A1247D74CD000657AB /* QueryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
 		34B636A3247D785C000657AB /* QueryCursorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCursorTests.swift; sourceTree = "<group>"; };
 		34B636A5247D9080000657AB /* STSPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSPoint.swift; sourceTree = "<group>"; };
+		34B636A7247DA38B000657AB /* STSInputEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSInputEdit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				344FE31E2479B6F70011F2CD /* STSParser.swift */,
 				344FE3282479BE6D0011F2CD /* STSTree.swift */,
 				34B63644247AB2D1000657AB /* STSTreeCursor.swift */,
+				34B636A7247DA38B000657AB /* STSInputEdit.swift */,
 				34B63629247A5CBF000657AB /* STSLanguage.swift */,
 				34B63642247AADE9000657AB /* STSNode.swift */,
 				34B63699247D5208000657AB /* STSQuery.swift */,
@@ -295,6 +298,7 @@
 				34B6369E247D5F5C000657AB /* STSQueryCapture.swift in Sources */,
 				34B6362A247A5CBF000657AB /* STSLanguage.swift in Sources */,
 				34B636A0247D5FA3000657AB /* STSQueryMatch.swift in Sources */,
+				34B636A8247DA38B000657AB /* STSInputEdit.swift in Sources */,
 				344FE3202479B6F70011F2CD /* STSParser.swift in Sources */,
 				34B6369C247D5E62000657AB /* STSQueryCursor.swift in Sources */,
 			);

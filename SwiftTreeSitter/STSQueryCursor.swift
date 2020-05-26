@@ -53,7 +53,7 @@ public class STSQueryCursor {
             var captures: [STSQueryCapture] = []
             var capturePtr = matchPtr.pointee.captures!
             
-            for _ in 0...matchPtr.pointee.capture_count {
+            for _ in 0..<matchPtr.pointee.capture_count {
                 
                 let node = STSNode(from: capturePtr.pointee.node)
                 let capture = STSQueryCapture(node: node, index: capturePtr.pointee.index)

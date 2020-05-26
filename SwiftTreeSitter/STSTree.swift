@@ -43,4 +43,10 @@ public class STSTree {
         return STSTree(pointer: ts_tree_copy(treePointer))
     }
     
+    public func edit(_ inputEdit: STSInputEdit) {
+        withUnsafePointer(to: inputEdit.tsInputEdit()) { (inputEditPtr) -> Void in
+            ts_tree_edit(treePointer, inputEditPtr)
+        }
+    }
+    
 }

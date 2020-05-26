@@ -29,6 +29,55 @@ class ParserTests: XCTestCase {
         XCTAssertEqual(tree.rootNode.sExpressionString, "(document (array (number) (number) (number)))")
     }
     
+    func testParseWithCallback() {
+        
+        var count = 0
+        let chunks = ["[1,", "2,", "\n3]"]
+        
+        let tree = parser.parse(callback: { (byteIndex, position) -> [Int8] in
+            
+            
+            switch count {
+            case 0:
+                XCTAssertEqual(byteIndex, 0)
+                XCTAssertEqual(position.row, 0)
+                XCTAssertEqual(position.column, 0)
+            case 1:
+                XCTAssertEqual(byteIndex, 3)
+                XCTAssertEqual(position.row, 0)
+                XCTAssertEqual(position.column, 3)
+            case 2:
+                XCTAssertEqual(byteIndex, 5)
+                XCTAssertEqual(position.row, 0)
+                XCTAssertEqual(position.column, 5)
+            case 3:
+                XCTAssertEqual(byteIndex, 8)
+                XCTAssertEqual(position.row, 1)
+                XCTAssertEqual(position.column, 2)
+            default:
+                XCTAssert(false)
+            }
+            
+            if count >= chunks.count {
+                return []
+            }
+            
+            var result = chunks[count].cString(using: .utf8)!
+            result.removeLast() // remove null termination
+            
+            count += 1
+            
+            return result
+            
+        }, oldTree: nil)
+        
+        XCTAssertEqual(count, 3)
+        
+        XCTAssertNotNil(tree)
+        XCTAssertEqual(tree!.rootNode.type, "document")
+        XCTAssertEqual(tree!.rootNode.sExpressionString, "(document (array (number) (number) (number)))")
+    }
+    
     func testCancellation() {
         
         let longJson = "[ \(String.init(repeating: "123,", count: 200)) 123 ]"
