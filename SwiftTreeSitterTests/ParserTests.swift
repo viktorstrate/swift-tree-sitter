@@ -30,6 +30,7 @@ class ParserTests: XCTestCase {
     func testParseString() throws {
         let tree = try! parser.parse(string: "[1,2,3]", oldTree: nil)
         XCTAssertEqual(tree.rootNode.type, "document")
+        XCTAssertEqual(tree.rootNode.sExpressionString, "(document (array (number) (number) (number)))")
     }
 
 }

@@ -15,6 +15,3 @@ FOUNDATION_EXPORT double SwiftTreeSitterVersionNumber;
 FOUNDATION_EXPORT const unsigned char SwiftTreeSitterVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SwiftTreeSitter/PublicHeader.h>
-
-//#import "parser.h"
-//extern const TSLanguage *tree_sitter_json(void);

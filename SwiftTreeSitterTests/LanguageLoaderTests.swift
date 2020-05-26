@@ -12,8 +12,9 @@ import XCTest
 class LanguageLoaderTests: XCTestCase {
     
     func testLoadLanguages() {
-        STSLanguage.loadLanguage(preBundled: .json)
+        STSLanguage.loadLanguage(preBundled: .java)
         STSLanguage.loadLanguage(preBundled: .javascript)
+        STSLanguage.loadLanguage(preBundled: .json)
     }
     
 }

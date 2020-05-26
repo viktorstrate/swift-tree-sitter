@@ -8,12 +8,16 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public class STSNode {
+public class STSNode: Equatable {
     
     internal let tsNode: TSNode
     
     init(from tsNode: TSNode) {
         self.tsNode = tsNode
+    }
+    
+    public static func == (lhs: STSNode, rhs: STSNode) -> Bool {
+        ts_node_eq(lhs.tsNode, rhs.tsNode)
     }
     
     /// A numeric id for this node that is unique.
@@ -34,6 +38,17 @@ public class STSNode {
         get {
             let symbol = ts_node_symbol(tsNode)
             return symbol
+        }
+    }
+    
+    var sExpressionString: String? {
+        get {
+            let cstr = ts_node_string(tsNode)
+            if let cstr = cstr {
+                return String(cString: cstr)
+            }
+            
+            return nil
         }
     }
     

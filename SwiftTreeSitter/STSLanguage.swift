@@ -89,8 +89,9 @@ public class STSLanguage {
     }
     
     public enum PrebundledLanguage: String {
-        case json = "json"
+        case java = "java"
         case javascript = "javascript"
+        case json = "json"
     }
     
     public static func loadLanguage(preBundled: PrebundledLanguage) -> STSLanguage {

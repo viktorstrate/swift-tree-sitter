@@ -22,6 +22,10 @@
 		34B63647247AB68C000657AB /* TreeCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B63646247AB68C000657AB /* TreeCursorTests.swift */; };
 		34B63649247AD0A8000657AB /* LanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B63648247AD0A8000657AB /* LanguageTests.swift */; };
 		34B63666247ADCB9000657AB /* LanguageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B63665247ADCB9000657AB /* LanguageLoaderTests.swift */; };
+		34B6369A247D5208000657AB /* STSQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B63699247D5208000657AB /* STSQuery.swift */; };
+		34B6369C247D5E62000657AB /* STSQueryCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6369B247D5E62000657AB /* STSQueryCursor.swift */; };
+		34B6369E247D5F5C000657AB /* STSQueryCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6369D247D5F5C000657AB /* STSQueryCapture.swift */; };
+		34B636A0247D5FA3000657AB /* STSQueryMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6369F247D5FA3000657AB /* STSQueryMatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,10 @@
 		34B63646247AB68C000657AB /* TreeCursorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeCursorTests.swift; sourceTree = "<group>"; };
 		34B63648247AD0A8000657AB /* LanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTests.swift; sourceTree = "<group>"; };
 		34B63665247ADCB9000657AB /* LanguageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageLoaderTests.swift; sourceTree = "<group>"; };
+		34B63699247D5208000657AB /* STSQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSQuery.swift; sourceTree = "<group>"; };
+		34B6369B247D5E62000657AB /* STSQueryCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSQueryCursor.swift; sourceTree = "<group>"; };
+		34B6369D247D5F5C000657AB /* STSQueryCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSQueryCapture.swift; sourceTree = "<group>"; };
+		34B6369F247D5FA3000657AB /* STSQueryMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSQueryMatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,10 @@
 				34B63644247AB2D1000657AB /* STSTreeCursor.swift */,
 				34B63629247A5CBF000657AB /* STSLanguage.swift */,
 				34B63642247AADE9000657AB /* STSNode.swift */,
+				34B63699247D5208000657AB /* STSQuery.swift */,
+				34B6369B247D5E62000657AB /* STSQueryCursor.swift */,
+				34B6369D247D5F5C000657AB /* STSQueryCapture.swift */,
+				34B6369F247D5FA3000657AB /* STSQueryMatch.swift */,
 			);
 			path = SwiftTreeSitter;
 			sourceTree = "<group>";
@@ -269,8 +281,12 @@
 				34B63643247AADE9000657AB /* STSNode.swift in Sources */,
 				344FE3292479BE6D0011F2CD /* STSTree.swift in Sources */,
 				34B63645247AB2D2000657AB /* STSTreeCursor.swift in Sources */,
+				34B6369A247D5208000657AB /* STSQuery.swift in Sources */,
+				34B6369E247D5F5C000657AB /* STSQueryCapture.swift in Sources */,
 				34B6362A247A5CBF000657AB /* STSLanguage.swift in Sources */,
+				34B636A0247D5FA3000657AB /* STSQueryMatch.swift in Sources */,
 				344FE3202479B6F70011F2CD /* STSParser.swift in Sources */,
+				34B6369C247D5E62000657AB /* STSQueryCursor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
