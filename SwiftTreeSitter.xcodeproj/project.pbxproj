@@ -467,7 +467,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SwiftTreeSitter",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/SwiftTreeSitter/parsers",
 				);
 				MODULEMAP_FILE = $SRCROOT/SwiftTreeSitter/SwiftTreeSitter.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter;
@@ -502,7 +501,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SwiftTreeSitter",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/SwiftTreeSitter/parsers",
 				);
 				MODULEMAP_FILE = $SRCROOT/SwiftTreeSitter/SwiftTreeSitter.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter;
@@ -527,7 +525,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/SwiftTreeSitter/parsers",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -550,7 +547,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/SwiftTreeSitter/parsers",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -21,7 +21,7 @@ public class STSQuery {
         - language: The language queries will be run against
         - source: A string containing one or more S-expression patterns
      */
-    init(language: STSLanguage, source: String) throws {
+    public init(language: STSLanguage, source: String) throws {
         
         let errorOffset = UnsafeMutablePointer<UInt32>.allocate(capacity: 1)
         let errorType = UnsafeMutablePointer<TSQueryError>.allocate(capacity: 1)
@@ -55,20 +55,20 @@ public class STSQuery {
     }
     
     /// Number of patterns the query contains
-    var patternCount: uint {
+    public var patternCount: uint {
         get {
             ts_query_pattern_count(queryPointer)
         }
     }
     
     /// Number of captures the query contains
-    var captureCount: uint {
+    public var captureCount: uint {
         get {
             ts_query_capture_count(queryPointer)
         }
     }
     
-    func captureName(forId id: uint) -> String {
+    public func captureName(forId id: uint) -> String {
         let lengthPtr = UnsafeMutablePointer<UInt32>.allocate(capacity: 1)
         defer {
             lengthPtr.deallocate()
@@ -79,13 +79,13 @@ public class STSQuery {
     }
     
     /// Number of string literals the query contains
-    var stringCount: uint {
+    public var stringCount: uint {
         get {
             ts_query_string_count(queryPointer)
         }
     }
     
-    func stringValue(forId id: uint) -> String {
+    public func stringValue(forId id: uint) -> String {
         let lengthPtr = UnsafeMutablePointer<UInt32>.allocate(capacity: 1)
         defer {
             lengthPtr.deallocate()
@@ -95,11 +95,11 @@ public class STSQuery {
         return String(cString: cstr!)
     }
     
-    func startByteForPattern(index: uint) -> uint {
+    public func startByteForPattern(index: uint) -> uint {
         return ts_query_start_byte_for_pattern(queryPointer, index)
     }
     
-    enum QueryError: Error {
+    public enum QueryError: Error {
         case syntax(offset: uint)
         case nodeType(offset: uint)
         case field(offset: uint)

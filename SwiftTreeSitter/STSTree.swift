@@ -39,4 +39,8 @@ public class STSTree {
         return STSTreeCursor(tree: self, node: self.rootNode)
     }
     
+    public func copy() -> STSTree {
+        return STSTree(pointer: ts_tree_copy(treePointer))
+    }
+    
 }

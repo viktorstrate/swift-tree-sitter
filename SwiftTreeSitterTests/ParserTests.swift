@@ -23,10 +23,31 @@ class ParserTests: XCTestCase {
         XCTAssertNotNil(parser.language)
     }
     
-    func testParseString() throws {
-        let tree = try! parser.parse(string: "[1,2,3]", oldTree: nil)
+    func testParseString() {
+        let tree = parser.parse(string: "[1,2,3]", oldTree: nil)!
         XCTAssertEqual(tree.rootNode.type, "document")
         XCTAssertEqual(tree.rootNode.sExpressionString, "(document (array (number) (number) (number)))")
     }
+    
+    func testCancellation() {
+        
+        let longJson = "[ \(String.init(repeating: "123,", count: 200)) 123 ]"
+        
+        parser.isCanceled = true
+        let treeCanceled = parser.parse(string: longJson, oldTree: nil)
+        XCTAssertNil(treeCanceled)
+        
+        parser.reset()
+        parser.isCanceled = false
+        let treeNotCanceled = parser.parse(string: longJson, oldTree: nil)
+        XCTAssertNotNil(treeNotCanceled)
+        
+    }
 
+    func testTimeout() {
+        XCTAssertNotEqual(parser.timeoutMicros, 12345)
+        parser.timeoutMicros = 12345
+        XCTAssertEqual(parser.timeoutMicros, 12345)
+    }
+    
 }
