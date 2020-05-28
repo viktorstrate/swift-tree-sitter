@@ -20,14 +20,28 @@ outputFolder="$(pwd)/$languageName-bundlefiles"
 echo "Building language bundle files for $languageName at $inputPath"
 
 (cd $inputPath && npm install)
-(cd $inputPath && npm build)
+(cd $inputPath && npm run build)
 
 mkdir -p "$outputFolder"
 
+# Copy source files
 sourceFiles=("$inputPath/src/*.c")
+headerFiles=("$inputPath/src/tree_sitter/*.h")
 
-# Compile all source c files into object files
-(cd "$outputFolder" && xcrun clang -c $sourceFiles -I"$inputPath/src")
+cp $sourceFiles "$outputFolder/"
+cp $headerFiles "$outputFolder/"
+
+# Copy resource files
+if [ -d "$inputPath/queries" ]; then
+	cp -r "$inputPath/queries" "$outputFolder/"
+fi
+
+# Generate xml metadata
+if jq . package.json &> /dev/null; then
+	metaScope="$(yq --xml-output '{ key: "Scope", string: ."tree-sitter"[].scope }' $inputPath/package.json)"
+	metaFiletypes="$(yq --xml-output '{ key: "Filetypes", array: { string: ."tree-sitter"[]."file-types" } }' $inputPath/package.json)"
+	#metaHighlights="$(yq --xml-output '{ key: "Highlights", array: { string: ."tree-sitter"[]."highlights" } }' $inputPath/package.json)"
+fi
 
 cat > "$outputFolder/info.plist" <<-INFOPLIST
 <?xml version="1.0" encoding="UTF-8"?>
@@ -36,6 +50,11 @@ cat > "$outputFolder/info.plist" <<-INFOPLIST
 <dict>
 	<key>STSLoadFunction</key>
 	<string>tree_sitter_${languageName}</string>
+	<key>TreeSitter</key>
+	<dict>
+	${metaScope}
+	${metaFiletypes}
+	</dict>
 	<key>CFBundleExecutable</key>
 	<string>${languageName}</string>
 	<key>CFBundleIdentifier</key>

@@ -34,5 +34,16 @@
 	<string>10.15</string>
 	<key>STSLoadFunction</key>
 	<string>tree_sitter_java</string>
+	<key>TreeSitter</key>
+	<dict>
+		<key>Filetypes</key>
+		<array>
+			<string>java</string>
+		</array>
+		<key>Highlights</key>
+		<array/>
+		<key>Scope</key>
+		<string>source.java</string>
+	</dict>
 </dict>
 </plist>

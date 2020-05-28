@@ -13,10 +13,9 @@ class ParserTests: XCTestCase {
 
     private var parser: STSParser!
     
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUpWithError() throws {
         parser = STSParser()
-        parser.language = STSLanguage.loadLanguage(preBundled: .json)
+        parser.language = try STSLanguage.loadLanguage(fromPreBundle: .json)
     }
 
     func testParserLoadLanguage() throws {

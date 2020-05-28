@@ -8,13 +8,22 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public struct STSInputEdit {
+public struct STSInputEdit: Equatable {
     public let startByte: uint
     public let oldEndByte: uint
     public let newEndByte: uint
     public let startPoint: STSPoint
     public let oldEndPoint: STSPoint
     public let newEndPoint: STSPoint
+    
+    public init(startByte: uint, oldEndByte: uint, newEndByte: uint, startPoint: STSPoint, oldEndPoint: STSPoint, newEndPoint: STSPoint) {
+        self.startByte = startByte
+        self.oldEndByte = oldEndByte
+        self.newEndByte = newEndByte
+        self.startPoint = startPoint
+        self.oldEndPoint = oldEndPoint
+        self.newEndPoint = newEndPoint
+    }
     
     internal func tsInputEdit() -> TSInputEdit {
         return TSInputEdit(

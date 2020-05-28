@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public struct STSPoint {
+public struct STSPoint: Equatable {
     public let row: uint
     public let column: uint
     

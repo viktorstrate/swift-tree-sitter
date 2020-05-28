@@ -92,19 +92,35 @@ public class STSLanguage {
         case java = "java"
         case javascript = "javascript"
         case json = "json"
+        
+        func bundle() throws -> Bundle {
+            let languageName = self.rawValue
+            
+            guard let bundlePath = Bundle(for: STSParser.self).path(forResource: languageName, ofType: "bundle", inDirectory: "Plugins/languages") else {
+                
+                throw LanguageError.prebundledBundleNotFound
+            }
+            
+            
+            return Bundle(path: bundlePath)!
+        }
     }
     
-    public static func loadLanguage(preBundled: PrebundledLanguage) -> STSLanguage {
-        let languageName = preBundled.rawValue
-        
-        let parserBundlePath = Bundle(for: STSParser.self).path(forResource: languageName, ofType: "bundle", inDirectory: "Plugins/languages")!
-        
-        let functionName = Bundle(path: parserBundlePath)!.infoDictionary!["STSLoadFunction"] as! String
-        
-        return loadLanguage(path: parserBundlePath, functionName: functionName)
+    public static func loadLanguage(fromPreBundle preBundle: PrebundledLanguage) throws -> STSLanguage {
+        let bundle = try preBundle.bundle()
+        return try loadLanguage(fromBundle: bundle)
     }
     
-    public static func loadLanguage(path: String, functionName: String) -> STSLanguage {
+    public static func loadLanguage(fromBundle bundle: Bundle) throws -> STSLanguage {
+        
+        guard let functionName = bundle.infoDictionary!["STSLoadFunction"] as? String else {
+            throw LanguageError.malformedLanguageBundle(message: "STSLoadFunction entry missing in info.plist")
+        }
+        
+        return try loadLanguage(path: bundle.bundlePath, functionName: functionName)
+    }
+    
+    internal static func loadLanguage(path: String, functionName: String) throws -> STSLanguage {
         
         let bundleURL = CFURLCreateWithFileSystemPath(
             kCFAllocatorDefault,
@@ -114,12 +130,18 @@ public class STSLanguage {
         
         let bundle = CFBundleCreate(kCFAllocatorDefault, bundleURL)!
         
-        let rawPointer = CFBundleGetFunctionPointerForName(bundle, functionName as CFString)!
+        guard let rawPointer = CFBundleGetFunctionPointerForName(bundle, functionName as CFString) else {
+            throw LanguageError.malformedLanguageBundle(message: "Could not load function pointer")
+        }
         
         let loadLanguage = unsafeBitCast(rawPointer, to: (@convention(c)() -> UnsafePointer<TSLanguage>).self)
-        
         let language = loadLanguage()
         
         return STSLanguage(pointer: language)
+    }
+    
+    enum LanguageError: Error {
+        case prebundledBundleNotFound
+        case malformedLanguageBundle(message: String)
     }
 }

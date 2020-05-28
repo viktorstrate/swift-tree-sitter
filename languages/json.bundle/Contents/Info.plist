@@ -2,8 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>STSLoadFunction</key>
-	<string>tree_sitter_json</string>
+	<key>BuildMachineOSBuild</key>
+	<string>19E287</string>
 	<key>CFBundleExecutable</key>
 	<string>json</string>
 	<key>CFBundleIdentifier</key>
@@ -11,10 +11,30 @@
 	<key>CFBundleName</key>
 	<string>json</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.16.0</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
 	</array>
+	<key>DTCompiler</key>
+	<string>com.apple.compilers.llvm.clang.1_0</string>
+	<key>DTPlatformBuild</key>
+	<string>11E608c</string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>19E258</string>
+	<key>DTSDKName</key>
+	<string>macosx10.15</string>
+	<key>DTXcode</key>
+	<string>1150</string>
+	<key>DTXcodeBuild</key>
+	<string>11E608c</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.15</string>
+	<key>STSLoadFunction</key>
+	<string>tree_sitter_json</string>
+	<key>TreeSitter</key>
+	<dict/>
 </dict>
 </plist>

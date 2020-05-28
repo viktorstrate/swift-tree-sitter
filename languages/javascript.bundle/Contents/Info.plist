@@ -34,5 +34,19 @@
 	<string>10.15</string>
 	<key>STSLoadFunction</key>
 	<string>tree_sitter_javascript</string>
+	<key>TreeSitter</key>
+	<dict>
+		<key>Filetypes</key>
+		<array>
+			<string>js</string>
+		</array>
+		<key>Highlights</key>
+		<array>
+			<string>queries/highlights-jsx.scm</string>
+			<string>queries/highlights.scm</string>
+		</array>
+		<key>Scope</key>
+		<string>source.js</string>
+	</dict>
 </dict>
 </plist>

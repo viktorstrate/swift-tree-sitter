@@ -12,7 +12,7 @@ import XCTest
 class QueryTests: XCTestCase {
     
     func testQueryValues() throws {
-        let language = STSLanguage.loadLanguage(preBundled: .javascript)
+        let language = try STSLanguage.loadLanguage(fromPreBundle: .javascript)
         let query = try STSQuery(language: language, source: """
             ; Function and method definitions
             ;--------------------------------

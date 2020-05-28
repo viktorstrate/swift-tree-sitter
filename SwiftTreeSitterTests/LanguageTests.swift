@@ -11,7 +11,11 @@ import XCTest
 
 class LanguageTests: XCTestCase {
     
-    let language = STSLanguage.loadLanguage(preBundled: .json)
+    var language: STSLanguage!
+    
+    override func setUpWithError() throws {
+        language = try STSLanguage.loadLanguage(fromPreBundle: .json)
+    }
     
     func testLanguageAuxillaryFunctions() throws {
         let _ = language.fieldCount

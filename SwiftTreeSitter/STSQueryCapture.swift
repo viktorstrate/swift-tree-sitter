@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public struct STSQueryCapture {
+public struct STSQueryCapture: Equatable {
     public let node: STSNode
     public let index: uint
 }

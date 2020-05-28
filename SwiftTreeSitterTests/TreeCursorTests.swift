@@ -15,7 +15,7 @@ class TreeCursorTests: XCTestCase {
     
     override func setUpWithError() throws {
         let parser = STSParser()
-        parser.language = STSLanguage.loadLanguage(preBundled: .json)
+        parser.language = try STSLanguage.loadLanguage(fromPreBundle: .json)
         
         let tree = parser.parse(string: "[1,null, 3]", oldTree: nil)!
         self.cursor = tree.walk()

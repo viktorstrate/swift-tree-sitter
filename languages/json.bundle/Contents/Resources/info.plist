@@ -3,13 +3,18 @@
 <plist version="1.0">
 <dict>
 <key>STSLoadFunction</key>
-<string>tree_sitter_java</string>
+<string>tree_sitter_json</string>
+<key>TreeSitter</key>
+<dict>
+
+
+</dict>
 <key>CFBundleExecutable</key>
-<string>java</string>
+<string>json</string>
 <key>CFBundleIdentifier</key>
-<string>io.github.viktorstrate.SwiftTreeSitter.language.java</string>
+<string>io.github.viktorstrate.SwiftTreeSitter.language.json</string>
 <key>CFBundleName</key>
-<string>java</string>
+<string>json</string>
 <key>CFBundleShortVersionString</key>
 <string>0.16.0</string>
 <key>CFBundleSupportedPlatforms</key>
