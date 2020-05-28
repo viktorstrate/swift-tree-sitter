@@ -12,7 +12,7 @@ import XCTest
 class QueryTests: XCTestCase {
     
     func testQueryValues() throws {
-        let language = try STSLanguage.loadLanguage(fromPreBundle: .javascript)
+        let language = try STSLanguage(fromPreBundle: .javascript)
         let query = try STSQuery(language: language, source: """
             ; Function and method definitions
             ;--------------------------------
@@ -27,5 +27,16 @@ class QueryTests: XCTestCase {
         XCTAssertEqual(query.captureCount, 2)
         XCTAssertEqual(query.patternCount, 3)
         XCTAssertEqual(query.stringCount, 0)
+    }
+    
+    func testLoadingQueryFromBundle() throws {
+        let language = try STSLanguage(fromPreBundle: .javascript)
+        
+        let highlights = try STSQuery.loadBundledQuery(language: language, sourceType: .highlights)
+        XCTAssertNotNil(highlights)
+        
+        let highlightsJsx = try STSQuery.loadBundledQuery(language: language,
+                                                          sourceType: .custom(name: "highlights-jsx"))
+        XCTAssertNotNil(highlightsJsx)
     }
 }

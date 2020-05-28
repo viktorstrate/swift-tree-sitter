@@ -11,6 +11,13 @@ import SwiftTreeSitter.CTreeSitter
 public class STSLanguage {
     
     internal let languagePointer: UnsafePointer<TSLanguage>!
+    internal var bundle: Bundle?
+    
+    public var bundlePath: String? {
+        get {
+            bundle?.bundlePath
+        }
+    }
     
     init(pointer: UnsafePointer<TSLanguage>!) {
         self.languagePointer = pointer
@@ -106,21 +113,23 @@ public class STSLanguage {
         }
     }
     
-    public static func loadLanguage(fromPreBundle preBundle: PrebundledLanguage) throws -> STSLanguage {
+    public convenience init(fromPreBundle preBundle: PrebundledLanguage) throws {
         let bundle = try preBundle.bundle()
-        return try loadLanguage(fromBundle: bundle)
+        try self.init(fromBundle: bundle)
     }
     
-    public static func loadLanguage(fromBundle bundle: Bundle) throws -> STSLanguage {
+    public convenience init(fromBundle bundle: Bundle) throws {
         
         guard let functionName = bundle.infoDictionary!["STSLoadFunction"] as? String else {
             throw LanguageError.malformedLanguageBundle(message: "STSLoadFunction entry missing in info.plist")
         }
         
-        return try loadLanguage(path: bundle.bundlePath, functionName: functionName)
+        try self.init(bundle: bundle, functionName: functionName)
     }
     
-    internal static func loadLanguage(path: String, functionName: String) throws -> STSLanguage {
+    internal convenience init(bundle: Bundle, functionName: String) throws {
+        
+        let path = bundle.bundlePath
         
         let bundleURL = CFURLCreateWithFileSystemPath(
             kCFAllocatorDefault,
@@ -128,16 +137,18 @@ public class STSLanguage {
             .cfurlposixPathStyle,
             true)!
         
-        let bundle = CFBundleCreate(kCFAllocatorDefault, bundleURL)!
+        let cfBundle = CFBundleCreate(kCFAllocatorDefault, bundleURL)!
         
-        guard let rawPointer = CFBundleGetFunctionPointerForName(bundle, functionName as CFString) else {
+        guard let rawPointer = CFBundleGetFunctionPointerForName(cfBundle, functionName as CFString) else {
             throw LanguageError.malformedLanguageBundle(message: "Could not load function pointer")
         }
         
         let loadLanguage = unsafeBitCast(rawPointer, to: (@convention(c)() -> UnsafePointer<TSLanguage>).self)
-        let language = loadLanguage()
+        let languagePtr = loadLanguage()
         
-        return STSLanguage(pointer: language)
+        self.init(pointer: languagePtr)
+        
+        self.bundle = bundle
     }
     
     enum LanguageError: Error {

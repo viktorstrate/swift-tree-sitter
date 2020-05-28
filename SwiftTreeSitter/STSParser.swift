@@ -56,7 +56,6 @@ public class STSParser {
     }
     
     deinit {
-        print("parser deleted")
         ts_parser_delete(parserPointer)
         cancelPtr.deallocate()
     }

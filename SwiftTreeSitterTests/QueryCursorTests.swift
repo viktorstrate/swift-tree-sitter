@@ -15,7 +15,7 @@ class QueryCursorTests: XCTestCase {
     var tree: STSTree!
     
     override func setUpWithError() throws {
-        let language = try STSLanguage.loadLanguage(fromPreBundle: .javascript)
+        let language = try STSLanguage(fromPreBundle: .javascript)
         
         query = try STSQuery(language: language, source: """
             ; Function and method definitions

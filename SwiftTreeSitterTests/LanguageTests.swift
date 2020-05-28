@@ -14,7 +14,7 @@ class LanguageTests: XCTestCase {
     var language: STSLanguage!
     
     override func setUpWithError() throws {
-        language = try STSLanguage.loadLanguage(fromPreBundle: .json)
+        language = try STSLanguage(fromPreBundle: .json)
     }
     
     func testLanguageAuxillaryFunctions() throws {

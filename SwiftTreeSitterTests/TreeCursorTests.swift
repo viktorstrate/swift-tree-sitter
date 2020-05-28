@@ -15,16 +15,13 @@ class TreeCursorTests: XCTestCase {
     
     override func setUpWithError() throws {
         let parser = STSParser()
-        parser.language = try STSLanguage.loadLanguage(fromPreBundle: .json)
+        parser.language = try STSLanguage(fromPreBundle: .json)
         
         let tree = parser.parse(string: "[1,null, 3]", oldTree: nil)!
         self.cursor = tree.walk()
     }
     
     func testGotoFunctions() throws {
-        print("Goto functions")
-        print("Root field node: \(cursor.currentNode.namedChildCount)")
-        
         XCTAssertEqual(cursor.gotoFirstChild(), true)
         XCTAssertEqual(cursor.currentNode.type, "array")
         

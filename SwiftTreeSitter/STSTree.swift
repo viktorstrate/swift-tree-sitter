@@ -31,7 +31,6 @@ public class STSTree {
     }
     
     deinit {
-        print("tree deleted")
         ts_tree_delete(treePointer)
     }
     

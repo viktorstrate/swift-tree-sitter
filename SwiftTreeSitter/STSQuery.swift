@@ -11,6 +11,7 @@ import SwiftTreeSitter.CTreeSitter
 public class STSQuery {
     
     internal let queryPointer: OpaquePointer
+    internal let language: STSLanguage
     
     /**
      Create a new query from a string containing one or more S-expression patterns.
@@ -22,6 +23,8 @@ public class STSQuery {
         - source: A string containing one or more S-expression patterns
      */
     public init(language: STSLanguage, source: String) throws {
+        
+        self.language = language
         
         let errorOffset = UnsafeMutablePointer<UInt32>.allocate(capacity: 1)
         let errorType = UnsafeMutablePointer<TSQueryError>.allocate(capacity: 1)
@@ -52,6 +55,39 @@ public class STSQuery {
     
     deinit {
         ts_query_delete(queryPointer)
+    }
+    
+    public static func loadBundledQuery(language: STSLanguage, sourceType: BundledSourceType) throws -> STSQuery? {
+        
+        let name: String
+        switch sourceType {
+        case .highlights:
+            name = "highlights"
+        case .injections:
+            name = "injections"
+        case .locals:
+            name = "locals"
+        case .tags:
+            name = "tags"
+        case .custom(let customName):
+            name = customName
+        }
+        
+        guard let url = language.bundle?.url(forResource: name, withExtension: "scm", subdirectory: "queries") else {
+            return nil
+        }
+        
+        let source = try String(contentsOf: url)
+        
+        return try STSQuery(language: language, source: source)
+    }
+    
+    public enum BundledSourceType {
+        case highlights
+        case injections
+        case locals
+        case tags
+        case custom(name: String)
     }
     
     /// Number of patterns the query contains
