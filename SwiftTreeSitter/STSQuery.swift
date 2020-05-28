@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public class STSQuery {
+public class STSQuery: Equatable, Hashable {
     
     internal let queryPointer: OpaquePointer
     internal let language: STSLanguage
@@ -140,6 +140,14 @@ public class STSQuery {
         case nodeType(offset: uint)
         case field(offset: uint)
         case capture(offset: uint)
+    }
+    
+    public static func == (lhs: STSQuery, rhs: STSQuery) -> Bool {
+        return lhs.queryPointer == rhs.queryPointer
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(queryPointer)
     }
     
 }

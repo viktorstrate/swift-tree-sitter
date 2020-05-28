@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public struct STSInputEdit: Equatable {
+public struct STSInputEdit: Equatable, Hashable {
     public let startByte: uint
     public let oldEndByte: uint
     public let newEndByte: uint

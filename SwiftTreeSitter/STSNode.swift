@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public class STSNode: Equatable {
+public class STSNode: Equatable, Hashable {
     
     internal var tsNode: TSNode
     
@@ -156,6 +156,10 @@ public class STSNode: Equatable {
                 ts_node_edit(tsNodePtr, inputEditPtr)
             }
         }
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(tsNode.id)
     }
     
 }

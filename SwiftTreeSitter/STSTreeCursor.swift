@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public class STSTreeCursor {
+public class STSTreeCursor: Equatable, Hashable {
     
     // Keep a reference to the cursors's tree,
     // to prevent it from being deleted prematurly
@@ -93,6 +93,14 @@ public class STSTreeCursor {
         }
 
         return uint(result)
+    }
+    
+    public static func == (lhs: STSTreeCursor, rhs: STSTreeCursor) -> Bool {
+        return lhs.tsTreeCursor.id == rhs.tsTreeCursor.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(tsTreeCursor.id)
     }
     
 }

@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public class STSQueryCursor {
+public class STSQueryCursor: Equatable, Hashable {
     
     internal let cursorPointer: OpaquePointer!
     
@@ -99,6 +99,14 @@ public class STSQueryCursor {
             
             return capture
         }
+    }
+    
+    public static func == (lhs: STSQueryCursor, rhs: STSQueryCursor) -> Bool {
+        return lhs.cursorPointer == rhs.cursorPointer
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(cursorPointer)
     }
     
 }

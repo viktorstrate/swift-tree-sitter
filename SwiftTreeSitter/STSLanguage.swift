@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public class STSLanguage {
+public class STSLanguage: Equatable, Hashable {
     
     internal let languagePointer: UnsafePointer<TSLanguage>!
     internal var bundle: Bundle?
@@ -154,5 +154,15 @@ public class STSLanguage {
     enum LanguageError: Error {
         case prebundledBundleNotFound
         case malformedLanguageBundle(message: String)
+    }
+    
+    public static func == (lhs: STSLanguage, rhs: STSLanguage) -> Bool {
+        return lhs.languagePointer == rhs.languagePointer &&
+            lhs.bundle == rhs.bundle
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(languagePointer)
+        hasher.combine(bundle)
     }
 }

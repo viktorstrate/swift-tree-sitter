@@ -9,7 +9,7 @@
 import SwiftTreeSitter.CTreeSitter
 
 /// Used to produce `STSTree`s from source code
-public class STSParser {
+public class STSParser: Equatable, Hashable {
     
     internal var parserPointer: OpaquePointer!
     
@@ -146,5 +146,13 @@ public class STSParser {
     
     public enum ParserError: Error {
         case parseString
+    }
+    
+    public static func == (lhs: STSParser, rhs: STSParser) -> Bool {
+        return lhs.parserPointer == rhs.parserPointer
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(parserPointer)
     }
 }

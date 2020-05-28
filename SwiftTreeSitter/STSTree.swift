@@ -9,7 +9,7 @@
 import SwiftTreeSitter.CTreeSitter
 
 /// A tree that represents the syntactic structure of a source code file.
-public class STSTree {
+public class STSTree: Equatable, Hashable {
     
     internal let treePointer: OpaquePointer
     
@@ -46,6 +46,14 @@ public class STSTree {
         withUnsafePointer(to: inputEdit.tsInputEdit()) { (inputEditPtr) -> Void in
             ts_tree_edit(treePointer, inputEditPtr)
         }
+    }
+    
+    public static func == (lhs: STSTree, rhs: STSTree) -> Bool {
+        return lhs.treePointer == rhs.treePointer
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(treePointer)
     }
     
 }
