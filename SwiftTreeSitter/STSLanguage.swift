@@ -13,6 +13,7 @@ public class STSLanguage: Equatable, Hashable {
     internal let languagePointer: UnsafePointer<TSLanguage>!
     internal var bundle: Bundle?
     
+    /// The path to the bundle that the language was loaded from.
     public var bundlePath: String? {
         get {
             bundle?.bundlePath
@@ -23,18 +24,21 @@ public class STSLanguage: Equatable, Hashable {
         self.languagePointer = pointer
     }
     
+    /// The version of the language parser.
     public var version: uint {
         get {
             return ts_language_version(languagePointer) as uint
         }
     }
     
+    /// Get the number of distinct node types in the language.
     public var symbolCount: uint {
         get {
             return ts_language_symbol_count(languagePointer)
         }
     }
     
+    /// Get a node type string for the given numerical id.
     public func symbolName(forId id: uint) -> String? {
         let cstr = ts_language_symbol_name(languagePointer, uint16(id))
         if let cstr = cstr {
@@ -44,6 +48,7 @@ public class STSLanguage: Equatable, Hashable {
         return nil
     }
     
+    /// Get the numerical id for the given node type string.
     public func symbolId(forName name: String, isNamed: Bool) -> uint {
         let result = name.withCString { (cstr) -> uint16 in
             ts_language_symbol_for_name(languagePointer, cstr, uint(name.count), isNamed)
@@ -52,6 +57,12 @@ public class STSLanguage: Equatable, Hashable {
         return uint(result)
     }
     
+    /**
+     Check whether the given node type id belongs to named nodes, anonymous nodes,
+     or a hidden nodes.
+     
+     See also `node.isNamed`. Hidden nodes are never returned from the API.
+     */
     public func symbolType(forId id: uint) -> SymbolType {
         let type = ts_language_symbol_type(languagePointer, uint16(id))
         switch type {
@@ -72,12 +83,14 @@ public class STSLanguage: Equatable, Hashable {
         case auxillary
     }
     
+    /// Get the number of distinct field names in the language.
     public var fieldCount: uint {
         get {
             return ts_language_field_count(languagePointer)
         }
     }
     
+    /// Get the field name string for the given numerical id.
     public func fieldId(forName name: String) -> uint {
         let result = name.withCString { (cstr) -> uint16 in
             ts_language_field_id_for_name(languagePointer, cstr, uint(name.count))
@@ -86,6 +99,7 @@ public class STSLanguage: Equatable, Hashable {
         return uint(result)
     }
     
+    /// Get the numerical id for the given field name string.
     public func fieldName(forId id: uint) -> String? {
         let cstr = ts_language_field_name_for_id(languagePointer, uint16(id))
         if let cstr = cstr {
@@ -94,7 +108,7 @@ public class STSLanguage: Equatable, Hashable {
         
         return nil
     }
-    
+
     public enum PrebundledLanguage: String {
         case java = "java"
         case javascript = "javascript"
@@ -113,11 +127,21 @@ public class STSLanguage: Equatable, Hashable {
         }
     }
     
+    /**
+     Initialize a language from one of the pre-bundled ones.
+     
+     # Example
+     
+     ```
+     let language = STSLanguage(preBundle: .javascript)
+     ```
+     */
     public convenience init(fromPreBundle preBundle: PrebundledLanguage) throws {
         let bundle = try preBundle.bundle()
         try self.init(fromBundle: bundle)
     }
     
+    /// Initialize a language from the given language bundle.
     public convenience init(fromBundle bundle: Bundle) throws {
         
         guard let functionName = bundle.infoDictionary!["STSLoadFunction"] as? String else {
