@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343E10972482A4F20067F56C /* STSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E10962482A4F20067F56C /* STSRange.swift */; };
 		344FE3132479B6DA0011F2CD /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344FE3122479B6DA0011F2CD /* ParserTests.swift */; };
 		344FE3152479B6DA0011F2CD /* SwiftTreeSitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 344FE3072479B6DA0011F2CD /* SwiftTreeSitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		344FE3202479B6F70011F2CD /* STSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344FE31E2479B6F70011F2CD /* STSParser.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		343E10962482A4F20067F56C /* STSRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSRange.swift; sourceTree = "<group>"; };
 		344FE3042479B6DA0011F2CD /* SwiftTreeSitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftTreeSitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		344FE3072479B6DA0011F2CD /* SwiftTreeSitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftTreeSitter.h; sourceTree = "<group>"; };
 		344FE3082479B6DA0011F2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				34B6369D247D5F5C000657AB /* STSQueryCapture.swift */,
 				34B6369F247D5FA3000657AB /* STSQueryMatch.swift */,
 				34B636A5247D9080000657AB /* STSPoint.swift */,
+				343E10962482A4F20067F56C /* STSRange.swift */,
 			);
 			path = SwiftTreeSitter;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				343E10972482A4F20067F56C /* STSRange.swift in Sources */,
 				34B63643247AADE9000657AB /* STSNode.swift in Sources */,
 				344FE3292479BE6D0011F2CD /* STSTree.swift in Sources */,
 				34B63645247AB2D2000657AB /* STSTreeCursor.swift in Sources */,

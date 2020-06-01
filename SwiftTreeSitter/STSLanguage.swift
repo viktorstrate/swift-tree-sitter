@@ -110,11 +110,14 @@ public class STSLanguage: Equatable, Hashable {
     }
 
     public enum PrebundledLanguage: String {
+        case css = "css"
+        case html = "html"
         case java = "java"
         case javascript = "javascript"
         case json = "json"
+        case php = "php"
         
-        func bundle() throws -> Bundle {
+        public func bundle() throws -> Bundle {
             let languageName = self.rawValue
             
             guard let bundlePath = Bundle(for: STSParser.self).path(forResource: languageName, ofType: "bundle", inDirectory: "Plugins/languages") else {

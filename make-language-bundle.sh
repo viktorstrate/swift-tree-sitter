@@ -20,7 +20,7 @@ outputFolder="$(pwd)/$languageName-bundlefiles"
 echo "Building language bundle files for $languageName at $inputPath"
 
 (cd $inputPath && npm install)
-(cd $inputPath && npm run build)
+(cd $inputPath && npm run build || echo "WARN: package.json did not have a build command")
 
 mkdir -p "$outputFolder"
 
@@ -37,9 +37,12 @@ if [ -d "$inputPath/queries" ]; then
 fi
 
 # Generate xml metadata
-if jq . package.json &> /dev/null; then
+if jq . "$inputPath/package.json" &> /dev/null; then
 	metaScope="$(yq --xml-output '{ key: "Scope", string: ."tree-sitter"[].scope }' $inputPath/package.json)"
 	metaFiletypes="$(yq --xml-output '{ key: "Filetypes", array: { string: ."tree-sitter"[]."file-types" } }' $inputPath/package.json)"
+	metaFirstLineRegex="$(yq --xml-output '{ key: "FirstLineRegex", string: ."tree-sitter"[]."first-line-regex" }' $inputPath/package.json)"
+	metaContentRegex="$(yq --xml-output '{ key: "ContentRegex", string: ."tree-sitter"[]."content-regex" }' $inputPath/package.json)"
+	metaInjectionRegex="$(yq --xml-output '{ key: "InjectionRegex", string: ."tree-sitter"[]."injection-regex" }' $inputPath/package.json)"
 	#metaHighlights="$(yq --xml-output '{ key: "Highlights", array: { string: ."tree-sitter"[]."highlights" } }' $inputPath/package.json)"
 fi
 
@@ -54,6 +57,9 @@ cat > "$outputFolder/info.plist" <<-INFOPLIST
 	<dict>
 	${metaScope}
 	${metaFiletypes}
+	${metaFirstLineRegex}
+	${metaContentRegex}
+	${metaInjectionRegex}
 	</dict>
 	<key>CFBundleExecutable</key>
 	<string>${languageName}</string>

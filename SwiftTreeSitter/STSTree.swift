@@ -48,6 +48,37 @@ public class STSTree: Equatable, Hashable {
         }
     }
     
+    /**
+     Compare an old edited syntax tree to a new syntax tree representing the same
+     document, returning an array of ranges whose syntactic structure has changed.
+     
+     For this to work correctly, the old syntax tree must have been edited such
+     that its ranges match up to the new tree. Generally, you'll want to call
+     this function right after calling one of the `STSParser.parse()` functions.
+     
+     - Parameters:
+        - oldTree: The old tree that was passed to parse.
+        - newTree: The new tree that was returned from the parser.
+     */
+    public static func changedRanges(oldTree: STSTree, newTree: STSTree) -> [STSRange] {
+        
+        let lengthPtr = UnsafeMutablePointer<uint>.allocate(capacity: 1)
+        let changesPtr = ts_tree_get_changed_ranges(oldTree.treePointer, newTree.treePointer, lengthPtr)
+        defer {
+            lengthPtr.deallocate()
+            changesPtr?.deallocate()
+        }
+        
+        var ranges: [STSRange] = []
+        
+        for _ in 0..<lengthPtr.pointee {
+            let range = changesPtr!.pointee
+            ranges.append(STSRange(tsRange: range))
+        }
+        
+        return ranges
+    }
+    
     public static func == (lhs: STSTree, rhs: STSTree) -> Bool {
         return lhs.treePointer == rhs.treePointer
     }
