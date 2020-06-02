@@ -14,6 +14,12 @@ public struct STSRange: Equatable, Hashable {
     public let startByte: uint
     public let endByte: uint
     
+    internal var tsRange: TSRange {
+        get {
+            return TSRange(start_point: startPoint.tsPoint, end_point: endPoint.tsPoint, start_byte: startByte, end_byte: endByte)
+        }
+    }
+    
     public init(startPoint: STSPoint, endPoint: STSPoint, startByte: uint, endByte: uint) {
         self.startPoint = startPoint
         self.endPoint = endPoint

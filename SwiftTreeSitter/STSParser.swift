@@ -55,6 +55,66 @@ public class STSParser: Equatable, Hashable {
         }
     }
     
+    /// Get the ranges of text that the parser will include when parsing.
+    public var includedRanges: [STSRange] {
+        get {
+            let lengthPtr = UnsafeMutablePointer<uint>.allocate(capacity: 1)
+            defer {
+                lengthPtr.deallocate()
+            }
+            
+            guard let rangePtrs = ts_parser_included_ranges(parserPointer, lengthPtr) else {
+                return []
+            }
+            
+            var ranges: [STSRange] = []
+            
+            for i in 0 ..< lengthPtr.pointee {
+                let tsRange = (rangePtrs + UnsafePointer<TSRange>.Stride(i)).pointee
+                ranges.append(STSRange(tsRange: tsRange))
+            }
+            
+            return ranges
+        }
+    }
+    
+    /**
+        Set the ranges of text that the parser should include when parsing.
+        
+        By default, the parser will always include entire documents. This function
+        allows you to parse only a *portion* of a document but still return a syntax
+        tree whose ranges match up with the document as a whole. You can also pass
+        multiple disjoint ranges.
+        
+        If `length` is zero, then the entire document will be parsed. Otherwise,
+        the given ranges must be ordered from earliest to latest in the document,
+        and they must not overlap. That is, the following must hold for all
+        `i < length - 1`:
+        
+        ```
+        ranges[i].endByte <= ranges[i + 1].startByte
+        ```
+        
+        If this requirement is not satisfied, the operation will fail, the ranges
+        will not be assigned, and this function will return `false`. On success,
+        this function returns `true`
+     */
+    public func setIncludedRanges(_ ranges: [STSRange]) -> Bool {
+        let tsRanges = ranges.map { $0.tsRange }
+        
+        let success = tsRanges.withUnsafeBufferPointer { (rangesPtr) -> Bool in
+            return ts_parser_set_included_ranges(parserPointer, rangesPtr.baseAddress, uint(tsRanges.count))
+        }
+        
+        return success
+    }
+    
+    /// Clear the previously set included ranges and instead include the entire document.
+    public func clearIncludedRanges() {
+        let success = ts_parser_set_included_ranges(parserPointer, nil, uint(0))
+        assert(success, "clearing the parser should always be successful")
+    }
+    
     public init() {
         parserPointer = ts_parser_new()
         

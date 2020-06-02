@@ -77,7 +77,7 @@ class ParserTests: XCTestCase {
         XCTAssertEqual(tree!.rootNode.sExpressionString, "(document (array (number) (number) (number)))")
     }
     
-    func testCancellation() {
+    func testParserCancellation() {
         
         let longJson = "[ \(String.init(repeating: "123,", count: 200)) 123 ]"
         
@@ -92,10 +92,30 @@ class ParserTests: XCTestCase {
         
     }
 
-    func testTimeout() {
+    func testParserTimeout() {
         XCTAssertNotEqual(parser.timeoutMicros, 12345)
         parser.timeoutMicros = 12345
         XCTAssertEqual(parser.timeoutMicros, 12345)
+    }
+    
+    func testParserIncludedRanges() {
+        XCTAssertEqual(parser.includedRanges.count, 1)
+        
+        let newRanges = [
+            STSRange(startPoint: STSPoint(row: 0, column: 1), endPoint: STSPoint(row: 0, column: 2), startByte: 1, endByte: 2),
+            STSRange(startPoint: STSPoint(row: 0, column: 3), endPoint: STSPoint(row: 0, column: 4), startByte: 3, endByte: 4)
+        ]
+        
+        
+        let success = parser.setIncludedRanges(newRanges)
+        XCTAssertTrue(success)
+        XCTAssertEqual(parser.includedRanges.count, 2)
+        XCTAssertEqual(parser.includedRanges[0].startByte, 1)
+        XCTAssertEqual(parser.includedRanges[0].endByte, 2)
+        XCTAssertEqual(parser.includedRanges[1].startByte, 3)
+        XCTAssertEqual(parser.includedRanges[1].endByte, 4)
+        
+        parser.clearIncludedRanges()
     }
     
 }
