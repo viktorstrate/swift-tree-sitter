@@ -13,21 +13,15 @@ public class STSParser: Equatable, Hashable {
     
     internal var parserPointer: OpaquePointer!
     
-    /**
-         The language that the parser should use for parsing.
-         
-         This value should be set before calling `.parse()`
-     */
-    public var language: STSLanguage? {
+    /// The language that the parser should use for parsing.
+    public var language: STSLanguage {
         set(newValue) {
-            ts_parser_set_language(parserPointer, newValue!.languagePointer)
+            ts_parser_set_language(parserPointer, newValue.languagePointer)
         }
         
         get {
-            if let languagePointer = ts_parser_language(parserPointer) {
-                return STSLanguage(pointer: languagePointer)
-            }
-            return nil
+            let languagePointer = ts_parser_language(parserPointer)!
+            return STSLanguage(pointer: languagePointer)
         }
     }
     
@@ -115,12 +109,14 @@ public class STSParser: Equatable, Hashable {
         assert(success, "clearing the parser should always be successful")
     }
     
-    public init() {
-        parserPointer = ts_parser_new()
+    public init(language: STSLanguage) {
+        self.parserPointer = ts_parser_new()
         
         cancelPtr = UnsafeMutablePointer.allocate(capacity: 1)
         cancelPtr.initialize(to: 0)
         ts_parser_set_cancellation_flag(parserPointer, cancelPtr)
+        
+        self.language = language
     }
     
     deinit {

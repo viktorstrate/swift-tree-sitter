@@ -28,8 +28,7 @@ class QueryCursorTests: XCTestCase {
               name: (property_identifier) @function.method)
         """)
         
-        let parser = STSParser()
-        parser.language = language
+        let parser = STSParser(language: language)
         tree = parser.parse(string: "function sum(a, b) { return a + b }", oldTree: nil)
         
     }

@@ -14,8 +14,8 @@ class ParserTests: XCTestCase {
     private var parser: STSParser!
     
     override func setUpWithError() throws {
-        parser = STSParser()
-        parser.language = try STSLanguage(fromPreBundle: .json)
+        let language = try STSLanguage(fromPreBundle: .json)
+        parser = STSParser(language: language)
     }
 
     func testParserLoadLanguage() throws {
