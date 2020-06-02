@@ -8,39 +8,59 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public class STSQueryCursor: Equatable, Hashable {
+public class STSQueryCursor {
     
-    internal let cursorPointer: OpaquePointer!
+    internal var byteRange: (uint, uint)?
+    internal var pointRange: (STSPoint, STSPoint)?
     
-    public init() {
-        self.cursorPointer = ts_query_cursor_new()
+    public init() {}
+    
+    public init(byteRangeFrom start: uint, to end: uint) {
+        self.byteRange = (start, end)
     }
     
-    deinit {
-        ts_query_cursor_delete(cursorPointer)
+    public init(pointRangeFrom start: STSPoint, end: STSPoint) {
+        self.pointRange = (start, end)
     }
     
-    /// Set the range of bytes in which the query will be executed
-    public func setByteRange(from start: uint, to end: uint) {
-        ts_query_cursor_set_byte_range(cursorPointer, start, end)
-    }
-    
-    public func setPointRange(from start: STSPoint, to end: STSPoint) {
-        ts_query_cursor_set_point_range(cursorPointer, start.tsPoint, end.tsPoint)
-    }
-    
-    public func matches(query: STSQuery, onNode node: STSNode) -> MatchIterator {
-        ts_query_cursor_exec(cursorPointer, query.queryPointer, node.tsNode)
+    internal static func setRanges(cursor: STSQueryCursor, pointer: OpaquePointer) {
+        if let (start, end) = cursor.byteRange {
+            ts_query_cursor_set_byte_range(pointer, start, end)
+        }
         
-        return MatchIterator(cursorPointer: cursorPointer)
+        if let (start, end) = cursor.pointRange {
+            ts_query_cursor_set_point_range(pointer, start.tsPoint, end.tsPoint)
+        }
+        
     }
     
-    public class MatchIterator: IteratorProtocol {
+    public func matches(query: STSQuery, onNode node: STSNode) -> MatchSequence {       
+        return MatchSequence(queryCursor: self, query: query, node: node)
+    }
+    
+    public class MatchSequence: Sequence, IteratorProtocol {
         
-        internal let cursorPointer: OpaquePointer!
+        let queryCursor: STSQueryCursor
+        let cursorPointer: OpaquePointer
+        let query: STSQuery
+        let node: STSNode
         
-        fileprivate init(cursorPointer: OpaquePointer!) {
-            self.cursorPointer = cursorPointer
+        fileprivate init(queryCursor: STSQueryCursor, query: STSQuery, node: STSNode) {
+            self.queryCursor = queryCursor
+            self.cursorPointer = ts_query_cursor_new()
+            self.query = query
+            self.node = node
+            
+            STSQueryCursor.setRanges(cursor: queryCursor, pointer: cursorPointer)
+            ts_query_cursor_exec(cursorPointer, query.queryPointer, node.tsNode)
+        }
+        
+        deinit {
+            ts_query_cursor_delete(cursorPointer)
+        }
+        
+        public func makeIterator() -> STSQueryCursor.MatchSequence {
+            return MatchSequence(queryCursor: self.queryCursor, query: query, node: node)
         }
         
         public func next() -> STSQueryMatch? {
@@ -71,42 +91,50 @@ public class STSQueryCursor: Equatable, Hashable {
         }
     }
     
-    public func captures(query: STSQuery, onNode node: STSNode) -> CaptureIterator {
-        ts_query_cursor_exec(cursorPointer, query.queryPointer, node.tsNode)
-        return CaptureIterator(cursorPointer: cursorPointer)
+    public func captures(query: STSQuery, onNode node: STSNode) -> CaptureSequence {
+        return CaptureSequence(queryCursor: self, query: query, node: node)
     }
-    
-    public class CaptureIterator: IteratorProtocol {
+
+    public class CaptureSequence: Sequence, IteratorProtocol {
+
+        let queryCursor: STSQueryCursor
+        let cursorPointer: OpaquePointer
+        let query: STSQuery
+        let node: STSNode
         
-        internal let cursorPointer: OpaquePointer!
-        
-        fileprivate init(cursorPointer: OpaquePointer!) {
-            self.cursorPointer = cursorPointer
+        fileprivate init(queryCursor: STSQueryCursor, query: STSQuery, node: STSNode) {
+            self.queryCursor = queryCursor
+            self.cursorPointer = ts_query_cursor_new()
+            self.query = query
+            self.node = node
+            
+            STSQueryCursor.setRanges(cursor: queryCursor, pointer: cursorPointer)
+            ts_query_cursor_exec(cursorPointer, query.queryPointer, node.tsNode)
         }
         
+        deinit {
+            ts_query_cursor_delete(cursorPointer)
+        }
+        
+        public func makeIterator() -> STSQueryCursor.CaptureSequence {
+            return CaptureSequence(queryCursor: self.queryCursor, query: query, node: node)
+        }
+
         public func next() -> STSQueryCapture? {
             let matchPtr = UnsafeMutablePointer<TSQueryMatch>.allocate(capacity: 1)
             let captureIndex = UnsafeMutablePointer<UInt32>.allocate(capacity: 1)
-            
+
             if ts_query_cursor_next_capture(cursorPointer, matchPtr, captureIndex) == false {
                 return nil
             }
-            
+
             let capturePtr = matchPtr.pointee.captures + Int(captureIndex.pointee)
-            
+
             let node = STSNode(from: capturePtr.pointee.node)
             let capture = STSQueryCapture(node: node, index: capturePtr.pointee.index)
-            
+
             return capture
         }
-    }
-    
-    public static func == (lhs: STSQueryCursor, rhs: STSQueryCursor) -> Bool {
-        return lhs.cursorPointer == rhs.cursorPointer
-    }
-    
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(cursorPointer)
     }
     
 }

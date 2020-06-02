@@ -44,15 +44,31 @@ class QueryCursorTests: XCTestCase {
         XCTAssertEqual(query.captureName(forId: match!.id), "function")
         
         XCTAssertNil(matches.next())
+        
+        var counter = 0
+        for match in matches {
+            XCTAssertNotEqual(match.captures.count, 0)
+            counter += 1
+        }
+        
+        XCTAssertEqual(counter, 1)
+        
     }
     
     func testQueryCaptures() {
         let cursor = STSQueryCursor()
         let captures = cursor.captures(query: query, onNode: tree.rootNode)
-        
+
         let capture = captures.next()
-        
+
         XCTAssertNotNil(capture)
         XCTAssertNil(captures.next())
+        
+        var counter = 0
+        for _ in captures {
+            counter += 1
+        }
+        
+        XCTAssertEqual(counter, 1)
     }
 }

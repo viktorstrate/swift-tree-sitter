@@ -21,6 +21,10 @@ public struct STSRange: Equatable, Hashable {
         self.endByte = endByte
     }
     
+    public init(from node: STSNode) {
+        self.init(startPoint: node.startPoint, endPoint: node.endPoint, startByte: node.startByte, endByte: node.endByte)
+    }
+    
     internal init(tsRange: TSRange) {
         let sPoint = STSPoint(from: tsRange.start_point)
         let ePoint = STSPoint(from: tsRange.end_point)
