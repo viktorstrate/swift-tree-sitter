@@ -11,4 +11,19 @@ import SwiftTreeSitter.CTreeSitter
 public struct STSQueryCapture: Equatable, Hashable {
     public let node: STSNode
     public let index: uint
+    
+    internal let query: STSQuery
+    
+    internal init(query: STSQuery, node: STSNode, index: uint) {
+        self.query = query
+        self.node = node
+        self.index = index
+    }
+    
+    public var name: String {
+        get {
+            query.captureName(forId: self.index)
+        }
+    }
+    
 }

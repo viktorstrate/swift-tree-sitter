@@ -135,6 +135,39 @@ public class STSQuery: Equatable, Hashable {
         return ts_query_start_byte_for_pattern(queryPointer, index)
     }
     
+    public func predicates(forPatternIndex index: uint) -> STSQueryPredicates? {
+        let lengthPtr = UnsafeMutablePointer<uint>.allocate(capacity: 1)
+        defer {
+            lengthPtr.deallocate()
+        }
+        
+        guard let steps = ts_query_predicates_for_pattern(queryPointer, index, lengthPtr) else {
+            return nil
+        }
+        
+        var args: [STSQueryPredicateArg] = []
+        let name = self.stringValue(forId: steps.pointee.value_id)
+        
+        for i in 1..<lengthPtr.pointee {
+            let step = (steps + UnsafePointer<TSQueryPredicateStep>.Stride(i)).pointee
+            
+            let predicateArg: STSQueryPredicateArg
+            
+            switch step.type.rawValue {
+            case 1:
+                predicateArg = .capture(step.value_id)
+            case 2:
+                predicateArg = .string(self.stringValue(forId: step.value_id))
+            default:
+                continue
+            }
+            
+            args.append(predicateArg)
+        }
+        
+        return STSQueryPredicates(name: name, args: args)
+    }
+    
     public enum QueryError: Error {
         case syntax(offset: uint)
         case nodeType(offset: uint)

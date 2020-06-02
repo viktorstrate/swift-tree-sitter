@@ -11,6 +11,30 @@ import XCTest
 
 class QueryTests: XCTestCase {
     
+    func testQueryPredicates() throws {
+        let language = try STSLanguage(fromPreBundle: .html)
+        let query = try STSQuery(language: language, source: """
+            ((script_element
+              (raw_text) @injection.content)
+             (#set! injection.language "javascript"))
+
+            ((tag_name) @constant
+              (#eq? @constant "test"))
+        """)
+        
+        var predicates = query.predicates(forPatternIndex: 0)
+        XCTAssertEqual(predicates?.name, "set!")
+        XCTAssertEqual(predicates?.args[0], STSQueryPredicateArg.string("injection.language"))
+        XCTAssertEqual(predicates?.args[1], STSQueryPredicateArg.string("javascript"))
+        XCTAssertEqual(predicates?.args.count, 2)
+        
+        predicates = query.predicates(forPatternIndex: 1)
+        XCTAssertEqual(predicates?.name, "eq?")
+        XCTAssertEqual(predicates?.args[0], STSQueryPredicateArg.capture(1))
+        XCTAssertEqual(predicates?.args[1], STSQueryPredicateArg.string("test"))
+        XCTAssertEqual(predicates?.args.count, 2)
+    }
+    
     func testQueryValues() throws {
         let language = try STSLanguage(fromPreBundle: .javascript)
         let query = try STSQuery(language: language, source: """
