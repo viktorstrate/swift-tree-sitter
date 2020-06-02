@@ -19,20 +19,23 @@ class QueryTests: XCTestCase {
              (#set! injection.language "javascript"))
 
             ((tag_name) @constant
+              (#match? @constant "^[A-Z][A-Z_]+")
               (#eq? @constant "test"))
         """)
         
         var predicates = query.predicates(forPatternIndex: 0)
-        XCTAssertEqual(predicates?.name, "set!")
-        XCTAssertEqual(predicates?.args[0], STSQueryPredicateArg.string("injection.language"))
-        XCTAssertEqual(predicates?.args[1], STSQueryPredicateArg.string("javascript"))
-        XCTAssertEqual(predicates?.args.count, 2)
+        XCTAssertEqual(predicates.count, 1)
+        XCTAssertEqual(predicates.first?.name, "set!")
+        XCTAssertEqual(predicates.first?.args[0], STSQueryPredicateArg.string("injection.language"))
+        XCTAssertEqual(predicates.first?.args[1], STSQueryPredicateArg.string("javascript"))
+        XCTAssertEqual(predicates.first?.args.count, 2)
         
         predicates = query.predicates(forPatternIndex: 1)
-        XCTAssertEqual(predicates?.name, "eq?")
-        XCTAssertEqual(predicates?.args[0], STSQueryPredicateArg.capture(1))
-        XCTAssertEqual(predicates?.args[1], STSQueryPredicateArg.string("test"))
-        XCTAssertEqual(predicates?.args.count, 2)
+        XCTAssertEqual(predicates.count, 2)
+        XCTAssertEqual(predicates[1].name, "match?")
+        XCTAssertEqual(predicates[1].args[0], STSQueryPredicateArg.capture(1))
+        XCTAssertEqual(predicates[1].args[1], STSQueryPredicateArg.string("^[A-Z][A-Z_]+"))
+        XCTAssertEqual(predicates[1].args.count, 2)
     }
     
     func testQueryValues() throws {

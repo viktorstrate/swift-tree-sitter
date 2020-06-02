@@ -135,37 +135,47 @@ public class STSQuery: Equatable, Hashable {
         return ts_query_start_byte_for_pattern(queryPointer, index)
     }
     
-    public func predicates(forPatternIndex index: uint) -> STSQueryPredicates? {
+    public func predicates(forPatternIndex index: uint) -> [STSQueryPredicate] {
         let lengthPtr = UnsafeMutablePointer<uint>.allocate(capacity: 1)
         defer {
             lengthPtr.deallocate()
         }
         
         guard let steps = ts_query_predicates_for_pattern(queryPointer, index, lengthPtr) else {
-            return nil
+            return []
         }
         
-        var args: [STSQueryPredicateArg] = []
-        let name = self.stringValue(forId: steps.pointee.value_id)
+        var predicates: [STSQueryPredicate] = []
+        var count = 0
         
-        for i in 1..<lengthPtr.pointee {
-            let step = (steps + UnsafePointer<TSQueryPredicateStep>.Stride(i)).pointee
+        while count < lengthPtr.pointee {
+        
+            var args: [STSQueryPredicateArg] = []
+            let name = self.stringValue(forId: steps.pointee.value_id)
+            count += 1
             
-            let predicateArg: STSQueryPredicateArg
-            
-            switch step.type.rawValue {
-            case 1:
-                predicateArg = .capture(step.value_id)
-            case 2:
-                predicateArg = .string(self.stringValue(forId: step.value_id))
-            default:
-                continue
+            argsLoop: for j in 1 ..< .max {
+                let step = (steps + UnsafePointer<TSQueryPredicateStep>.Stride(j)).pointee
+                count += 1
+                
+                let predicateArg: STSQueryPredicateArg
+                
+                switch step.type.rawValue {
+                case 1:
+                    predicateArg = .capture(step.value_id)
+                case 2:
+                    predicateArg = .string(self.stringValue(forId: step.value_id))
+                default:
+                    break argsLoop
+                }
+                
+                args.append(predicateArg)
             }
             
-            args.append(predicateArg)
+            predicates.append(STSQueryPredicate(name: name, args: args))
         }
         
-        return STSQueryPredicates(name: name, args: args)
+        return predicates
     }
     
     public enum QueryError: Error {

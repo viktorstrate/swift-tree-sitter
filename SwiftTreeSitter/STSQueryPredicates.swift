@@ -8,7 +8,7 @@
 
 import SwiftTreeSitter.CTreeSitter
 
-public struct STSQueryPredicates {
+public struct STSQueryPredicate {
     public let name: String
     public let args: [STSQueryPredicateArg]
 }
