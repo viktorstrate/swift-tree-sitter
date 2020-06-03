@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>STSLoadFunction</key>
+<string>tree_sitter_javascript</string>
+<key>TreeSitter</key>
+<dict>
+<key>Scope</key><string>source.js</string>
+<key>Filetypes</key><array>
+  <string>js</string>
+  <string>jsx</string>
+</array>
+<key>Highlights</key><array>
+  <string>queries/highlights-jsx.scm</string>
+  <string>queries/highlights.scm</string>
+</array>
+</dict>
+<key>CFBundleExecutable</key>
+<string>javascript</string>
+<key>CFBundleIdentifier</key>
+<string>io.github.viktorstrate.SwiftTreeSitter.language.javascript</string>
+<key>CFBundleName</key>
+<string>javascript</string>
+<key>CFBundleShortVersionString</key>
+<string>0.16.0</string>
+<key>CFBundleSupportedPlatforms</key>
+<array>
+<string>MacOSX</string>
+</array>
+</dict>
+</plist>

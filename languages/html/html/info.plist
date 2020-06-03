@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>STSLoadFunction</key>
+<string>tree_sitter_html</string>
+<key>TreeSitter</key>
+<dict>
+<key>Scope</key><string>text.html.basic</string>
+<key>Filetypes</key><array>
+  <string>html</string>
+</array>
+<key>FirstLineRegex</key><string></string>
+<key>ContentRegex</key><string></string>
+<key>InjectionRegex</key><string>html</string>
+</dict>
+<key>CFBundleExecutable</key>
+<string>html</string>
+<key>CFBundleIdentifier</key>
+<string>io.github.viktorstrate.SwiftTreeSitter.language.html</string>
+<key>CFBundleName</key>
+<string>html</string>
+<key>CFBundleShortVersionString</key>
+<string>0.16.0</string>
+<key>CFBundleSupportedPlatforms</key>
+<array>
+<string>MacOSX</string>
+</array>
+</dict>
+</plist>
