@@ -345,7 +345,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
-				VALID_ARCHS = "i386 x86_64 armv7s armv7 arm64";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -362,7 +362,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
-				VALID_ARCHS = "i386 x86_64 armv7s armv7 arm64";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
