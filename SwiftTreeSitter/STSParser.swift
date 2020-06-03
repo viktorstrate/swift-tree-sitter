@@ -26,7 +26,7 @@ public class STSParser: Equatable, Hashable {
     }
     
     /// The maximum duration in microseconds that parsing should be allowed to take before halting.
-    public var timeoutMicros: uint64 {
+    public var timeoutMicros: UInt64 {
         get {
             ts_parser_timeout_micros(parserPointer)
         }

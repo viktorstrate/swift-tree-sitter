@@ -40,9 +40,9 @@ public class STSTreeCursor: Equatable, Hashable {
         }
     }
     
-    public var fieldId: uint16 {
+    public var fieldId: UInt16 {
         get {
-            withUnsafePointer(to: &self.tsTreeCursor) { (cursorPointer) -> uint16 in
+            withUnsafePointer(to: &self.tsTreeCursor) { (cursorPointer) -> UInt16 in
                 ts_tree_cursor_current_field_id(cursorPointer)
             }
         }

@@ -36,7 +36,7 @@ public class STSNode: Equatable, Hashable {
     }
     
     /// Get the node's type as a numerical id.
-    public var typeId: uint16 {
+    public var typeId: UInt16 {
         get {
             let symbol = ts_node_symbol(tsNode)
             return symbol

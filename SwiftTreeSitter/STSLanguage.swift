@@ -40,7 +40,7 @@ public class STSLanguage: Equatable, Hashable {
     
     /// Get a node type string for the given numerical id.
     public func symbolName(forId id: uint) -> String? {
-        let cstr = ts_language_symbol_name(languagePointer, uint16(id))
+        let cstr = ts_language_symbol_name(languagePointer, UInt16(id))
         if let cstr = cstr {
             return String(cString: cstr)
         }
@@ -50,7 +50,7 @@ public class STSLanguage: Equatable, Hashable {
     
     /// Get the numerical id for the given node type string.
     public func symbolId(forName name: String, isNamed: Bool) -> uint {
-        let result = name.withCString { (cstr) -> uint16 in
+        let result = name.withCString { (cstr) -> UInt16 in
             ts_language_symbol_for_name(languagePointer, cstr, uint(name.count), isNamed)
         }
         
@@ -64,7 +64,7 @@ public class STSLanguage: Equatable, Hashable {
      See also `node.isNamed`. Hidden nodes are never returned from the API.
      */
     public func symbolType(forId id: uint) -> SymbolType {
-        let type = ts_language_symbol_type(languagePointer, uint16(id))
+        let type = ts_language_symbol_type(languagePointer, UInt16(id))
         switch type {
         case .init(0):
             return .regular
@@ -92,7 +92,7 @@ public class STSLanguage: Equatable, Hashable {
     
     /// Get the field name string for the given numerical id.
     public func fieldId(forName name: String) -> uint {
-        let result = name.withCString { (cstr) -> uint16 in
+        let result = name.withCString { (cstr) -> UInt16 in
             ts_language_field_id_for_name(languagePointer, cstr, uint(name.count))
         }
         
@@ -101,7 +101,7 @@ public class STSLanguage: Equatable, Hashable {
     
     /// Get the numerical id for the given field name string.
     public func fieldName(forId id: uint) -> String? {
-        let cstr = ts_language_field_name_for_id(languagePointer, uint16(id))
+        let cstr = ts_language_field_name_for_id(languagePointer, UInt16(id))
         if let cstr = cstr {
             return String(cString: cstr)
         }
@@ -120,7 +120,7 @@ public class STSLanguage: Equatable, Hashable {
         public func bundle() throws -> Bundle {
             let languageName = self.rawValue
             
-            guard let bundlePath = Bundle(for: STSParser.self).path(forResource: languageName, ofType: "bundle", inDirectory: "Plugins/languages") else {
+            guard let bundlePath = Bundle(for: STSParser.self).path(forResource: languageName, ofType: "bundle", inDirectory: "PlugIns/languages") else {
                 
                 throw LanguageError.prebundledBundleNotFound
             }
