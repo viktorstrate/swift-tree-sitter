@@ -7,34 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		341784FD248000E600843085 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 341784FA248000E500843085 /* parser.c */; };
-		341784FE248000E600843085 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 341784FB248000E600843085 /* info.plist */; };
-		341784FF248000E600843085 /* queries in Resources */ = {isa = PBXBuildFile; fileRef = 341784FC248000E600843085 /* queries */; };
-		341785012480010300843085 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 341784F9248000E500843085 /* parser.h */; };
+		343E141B2487AA070067F56C /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 343E13F52487AA070067F56C /* parser.h */; };
+		343E141D2487AA070067F56C /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 343E13F72487AA070067F56C /* parser.c */; };
+		343E141F2487AA280067F56C /* queries in Resources */ = {isa = PBXBuildFile; fileRef = 343E141E2487AA280067F56C /* queries */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		341784F0248000AF00843085 /* java.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = java.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		341784F9248000E500843085 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
-		341784FA248000E500843085 /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
 		341784FB248000E600843085 /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
-		341784FC248000E600843085 /* queries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = queries; sourceTree = "<group>"; };
+		343E13BD2487AA070067F56C /* .npmignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .npmignore; sourceTree = "<group>"; };
+		343E13BE2487AA070067F56C /* grammar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = grammar.js; sourceTree = "<group>"; };
+		343E13BF2487AA070067F56C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		343E13C22487AA070067F56C /* types.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = types.java; sourceTree = "<group>"; };
+		343E13C42487AA070067F56C /* comments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = comments.txt; sourceTree = "<group>"; };
+		343E13C52487AA070067F56C /* literals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = literals.txt; sourceTree = "<group>"; };
+		343E13C62487AA070067F56C /* declarations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = declarations.txt; sourceTree = "<group>"; };
+		343E13C72487AA070067F56C /* types.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = types.txt; sourceTree = "<group>"; };
+		343E13C82487AA070067F56C /* expressions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = expressions.txt; sourceTree = "<group>"; };
+		343E13C92487AA070067F56C /* binding.gyp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binding.gyp; sourceTree = "<group>"; };
+		343E13CB2487AA070067F56C /* tags.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tags.scm; sourceTree = "<group>"; };
+		343E13CC2487AA070067F56C /* highlights.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = highlights.scm; sourceTree = "<group>"; };
+		343E13CD2487AA070067F56C /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		343E13CF2487AA070067F56C /* known-failures.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "known-failures.txt"; sourceTree = "<group>"; };
+		343E13D12487AA070067F56C /* bootstrap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = bootstrap; sourceTree = "<group>"; };
+		343E13D42487AA070067F56C /* RunJavaParser.class */ = {isa = PBXFileReference; lastKnownFileType = compiled.javaclass; path = RunJavaParser.class; sourceTree = "<group>"; };
+		343E13D92487AA070067F56C /* inputFiles.lst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = inputFiles.lst; sourceTree = "<group>"; };
+		343E13DA2487AA070067F56C /* createdFiles.lst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = createdFiles.lst; sourceTree = "<group>"; };
+		343E13DC2487AA070067F56C /* pom.properties */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pom.properties; sourceTree = "<group>"; };
+		343E13DD2487AA070067F56C /* run-javaparser-1.0-SNAPSHOT.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; path = "run-javaparser-1.0-SNAPSHOT.jar"; sourceTree = "<group>"; };
+		343E13DE2487AA070067F56C /* pom.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pom.xml; sourceTree = "<group>"; };
+		343E13DF2487AA070067F56C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		343E13E02487AA070067F56C /* run */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = run; sourceTree = "<group>"; };
+		343E13E72487AA070067F56C /* RunJavaParser.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = RunJavaParser.java; sourceTree = "<group>"; };
+		343E13E82487AA070067F56C /* parse-examples */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "parse-examples"; sourceTree = "<group>"; };
+		343E13E92487AA070067F56C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		343E13EA2487AA070067F56C /* issue_template.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = issue_template.md; sourceTree = "<group>"; };
+		343E13EB2487AA070067F56C /* appveyor.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = appveyor.yml; sourceTree = "<group>"; };
+		343E13EC2487AA070067F56C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		343E13ED2487AA070067F56C /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		343E13EE2487AA070067F56C /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		343E13EF2487AA070067F56C /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		343E13F02487AA070067F56C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
+		343E13F22487AA070067F56C /* binding.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = binding.cc; sourceTree = "<group>"; };
+		343E13F32487AA070067F56C /* node-types.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "node-types.json"; sourceTree = "<group>"; };
+		343E13F52487AA070067F56C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		343E13F62487AA070067F56C /* grammar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grammar.json; sourceTree = "<group>"; };
+		343E13F72487AA070067F56C /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
+		343E141E2487AA280067F56C /* queries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = queries; path = "tree-sitter-java/queries"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		341784ED248000AF00843085 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		341784E7248000AF00843085 = {
 			isa = PBXGroup;
 			children = (
+				343E141E2487AA280067F56C /* queries */,
+				343E13BC2487AA070067F56C /* tree-sitter-java */,
 				341784F2248000AF00843085 /* java */,
 				341784F1248000AF00843085 /* Products */,
 			);
@@ -52,11 +79,221 @@
 			isa = PBXGroup;
 			children = (
 				341784FB248000E600843085 /* info.plist */,
-				341784FA248000E500843085 /* parser.c */,
-				341784F9248000E500843085 /* parser.h */,
-				341784FC248000E600843085 /* queries */,
 			);
 			path = java;
+			sourceTree = "<group>";
+		};
+		343E13BC2487AA070067F56C /* tree-sitter-java */ = {
+			isa = PBXGroup;
+			children = (
+				343E13BD2487AA070067F56C /* .npmignore */,
+				343E13BE2487AA070067F56C /* grammar.js */,
+				343E13BF2487AA070067F56C /* LICENSE */,
+				343E13C02487AA070067F56C /* test */,
+				343E13C92487AA070067F56C /* binding.gyp */,
+				343E13CA2487AA070067F56C /* queries */,
+				343E13CD2487AA070067F56C /* index.js */,
+				343E13CE2487AA070067F56C /* script */,
+				343E13E92487AA070067F56C /* README.md */,
+				343E13EA2487AA070067F56C /* issue_template.md */,
+				343E13EB2487AA070067F56C /* appveyor.yml */,
+				343E13EC2487AA070067F56C /* .gitignore */,
+				343E13ED2487AA070067F56C /* package.json */,
+				343E13EE2487AA070067F56C /* CONTRIBUTING.md */,
+				343E13EF2487AA070067F56C /* .gitattributes */,
+				343E13F02487AA070067F56C /* .travis.yml */,
+				343E13F12487AA070067F56C /* src */,
+			);
+			path = "tree-sitter-java";
+			sourceTree = "<group>";
+		};
+		343E13C02487AA070067F56C /* test */ = {
+			isa = PBXGroup;
+			children = (
+				343E13C12487AA070067F56C /* highlight */,
+				343E13C32487AA070067F56C /* corpus */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		343E13C12487AA070067F56C /* highlight */ = {
+			isa = PBXGroup;
+			children = (
+				343E13C22487AA070067F56C /* types.java */,
+			);
+			path = highlight;
+			sourceTree = "<group>";
+		};
+		343E13C32487AA070067F56C /* corpus */ = {
+			isa = PBXGroup;
+			children = (
+				343E13C42487AA070067F56C /* comments.txt */,
+				343E13C52487AA070067F56C /* literals.txt */,
+				343E13C62487AA070067F56C /* declarations.txt */,
+				343E13C72487AA070067F56C /* types.txt */,
+				343E13C82487AA070067F56C /* expressions.txt */,
+			);
+			path = corpus;
+			sourceTree = "<group>";
+		};
+		343E13CA2487AA070067F56C /* queries */ = {
+			isa = PBXGroup;
+			children = (
+				343E13CB2487AA070067F56C /* tags.scm */,
+				343E13CC2487AA070067F56C /* highlights.scm */,
+			);
+			path = queries;
+			sourceTree = "<group>";
+		};
+		343E13CE2487AA070067F56C /* script */ = {
+			isa = PBXGroup;
+			children = (
+				343E13CF2487AA070067F56C /* known-failures.txt */,
+				343E13D02487AA070067F56C /* run-javaparser */,
+				343E13E82487AA070067F56C /* parse-examples */,
+			);
+			path = script;
+			sourceTree = "<group>";
+		};
+		343E13D02487AA070067F56C /* run-javaparser */ = {
+			isa = PBXGroup;
+			children = (
+				343E13D12487AA070067F56C /* bootstrap */,
+				343E13D22487AA070067F56C /* target */,
+				343E13DE2487AA070067F56C /* pom.xml */,
+				343E13DF2487AA070067F56C /* README.md */,
+				343E13E02487AA070067F56C /* run */,
+				343E13E12487AA070067F56C /* src */,
+			);
+			path = "run-javaparser";
+			sourceTree = "<group>";
+		};
+		343E13D22487AA070067F56C /* target */ = {
+			isa = PBXGroup;
+			children = (
+				343E13D32487AA070067F56C /* classes */,
+				343E13D52487AA070067F56C /* maven-status */,
+				343E13DB2487AA070067F56C /* maven-archiver */,
+				343E13DD2487AA070067F56C /* run-javaparser-1.0-SNAPSHOT.jar */,
+			);
+			path = target;
+			sourceTree = "<group>";
+		};
+		343E13D32487AA070067F56C /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				343E13D42487AA070067F56C /* RunJavaParser.class */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		343E13D52487AA070067F56C /* maven-status */ = {
+			isa = PBXGroup;
+			children = (
+				343E13D62487AA070067F56C /* maven-compiler-plugin */,
+			);
+			path = "maven-status";
+			sourceTree = "<group>";
+		};
+		343E13D62487AA070067F56C /* maven-compiler-plugin */ = {
+			isa = PBXGroup;
+			children = (
+				343E13D72487AA070067F56C /* compile */,
+			);
+			path = "maven-compiler-plugin";
+			sourceTree = "<group>";
+		};
+		343E13D72487AA070067F56C /* compile */ = {
+			isa = PBXGroup;
+			children = (
+				343E13D82487AA070067F56C /* default-compile */,
+			);
+			path = compile;
+			sourceTree = "<group>";
+		};
+		343E13D82487AA070067F56C /* default-compile */ = {
+			isa = PBXGroup;
+			children = (
+				343E13D92487AA070067F56C /* inputFiles.lst */,
+				343E13DA2487AA070067F56C /* createdFiles.lst */,
+			);
+			path = "default-compile";
+			sourceTree = "<group>";
+		};
+		343E13DB2487AA070067F56C /* maven-archiver */ = {
+			isa = PBXGroup;
+			children = (
+				343E13DC2487AA070067F56C /* pom.properties */,
+			);
+			path = "maven-archiver";
+			sourceTree = "<group>";
+		};
+		343E13E12487AA070067F56C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				343E13E22487AA070067F56C /* main */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		343E13E22487AA070067F56C /* main */ = {
+			isa = PBXGroup;
+			children = (
+				343E13E32487AA070067F56C /* java */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		343E13E32487AA070067F56C /* java */ = {
+			isa = PBXGroup;
+			children = (
+				343E13E42487AA070067F56C /* com */,
+			);
+			path = java;
+			sourceTree = "<group>";
+		};
+		343E13E42487AA070067F56C /* com */ = {
+			isa = PBXGroup;
+			children = (
+				343E13E52487AA070067F56C /* github */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		343E13E52487AA070067F56C /* github */ = {
+			isa = PBXGroup;
+			children = (
+				343E13E62487AA070067F56C /* tree-sitter */,
+			);
+			path = github;
+			sourceTree = "<group>";
+		};
+		343E13E62487AA070067F56C /* tree-sitter */ = {
+			isa = PBXGroup;
+			children = (
+				343E13E72487AA070067F56C /* RunJavaParser.java */,
+			);
+			path = "tree-sitter";
+			sourceTree = "<group>";
+		};
+		343E13F12487AA070067F56C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				343E13F22487AA070067F56C /* binding.cc */,
+				343E13F32487AA070067F56C /* node-types.json */,
+				343E13F42487AA070067F56C /* tree_sitter */,
+				343E13F62487AA070067F56C /* grammar.json */,
+				343E13F72487AA070067F56C /* parser.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		343E13F42487AA070067F56C /* tree_sitter */ = {
+			isa = PBXGroup;
+			children = (
+				343E13F52487AA070067F56C /* parser.h */,
+			);
+			path = tree_sitter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -66,7 +303,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341785012480010300843085 /* parser.h in Headers */,
+				343E141B2487AA070067F56C /* parser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +316,6 @@
 			buildPhases = (
 				34178500248000FC00843085 /* Headers */,
 				341784EC248000AF00843085 /* Sources */,
-				341784ED248000AF00843085 /* Frameworks */,
 				341784EE248000AF00843085 /* Resources */,
 			);
 			buildRules = (
@@ -128,8 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341784FE248000E600843085 /* info.plist in Resources */,
-				341784FF248000E600843085 /* queries in Resources */,
+				343E141F2487AA280067F56C /* queries in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341784FD248000E600843085 /* parser.c in Sources */,
+				343E141D2487AA070067F56C /* parser.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +496,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$PROJECT_DIR/tree-sitter-java/src";
 				INFOPLIST_FILE = java/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter.language.java;
@@ -277,6 +513,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$PROJECT_DIR/tree-sitter-java/src";
 				INFOPLIST_FILE = java/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter.language.java;

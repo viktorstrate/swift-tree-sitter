@@ -7,19 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		343E10B124859D500067F56C /* queries in Resources */ = {isa = PBXBuildFile; fileRef = 343E10AC24859D500067F56C /* queries */; };
-		343E10B224859D500067F56C /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 343E10AD24859D500067F56C /* scanner.c */; };
-		343E10B324859D500067F56C /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 343E10AE24859D500067F56C /* info.plist */; };
-		343E10B424859D500067F56C /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 343E10AF24859D500067F56C /* parser.c */; };
+		343E137A2487A8D30067F56C /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 343E13622487A8D30067F56C /* scanner.c */; };
+		343E137E2487A8D30067F56C /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 343E13682487A8D30067F56C /* parser.c */; };
+		343E13BB2487A9C40067F56C /* queries in Resources */ = {isa = PBXBuildFile; fileRef = 343E13BA2487A9C40067F56C /* queries */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		343E10A324859D3E0067F56C /* css.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = css.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		343E10AC24859D500067F56C /* queries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = queries; sourceTree = "<group>"; };
-		343E10AD24859D500067F56C /* scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = scanner.c; sourceTree = "<group>"; };
 		343E10AE24859D500067F56C /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
-		343E10AF24859D500067F56C /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
-		343E10B024859D500067F56C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		343E134D2487A8D30067F56C /* grammar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = grammar.js; sourceTree = "<group>"; };
+		343E134E2487A8D30067F56C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		343E134F2487A8D30067F56C /* binding.gyp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binding.gyp; sourceTree = "<group>"; };
+		343E13512487A8D30067F56C /* stylesheets.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stylesheets.txt; sourceTree = "<group>"; };
+		343E13522487A8D30067F56C /* selectors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = selectors.txt; sourceTree = "<group>"; };
+		343E13532487A8D30067F56C /* declarations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = declarations.txt; sourceTree = "<group>"; };
+		343E13542487A8D30067F56C /* statements.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = statements.txt; sourceTree = "<group>"; };
+		343E13562487A8D30067F56C /* highlights.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = highlights.scm; sourceTree = "<group>"; };
+		343E13572487A8D30067F56C /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		343E13582487A8D30067F56C /* .appveyor.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .appveyor.yml; sourceTree = "<group>"; };
+		343E13592487A8D30067F56C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		343E135A2487A8D30067F56C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		343E135B2487A8D30067F56C /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		343E135D2487A8D30067F56C /* github.com.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = github.com.css; sourceTree = "<group>"; };
+		343E135E2487A8D30067F56C /* atom.io.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = atom.io.css; sourceTree = "<group>"; };
+		343E135F2487A8D30067F56C /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		343E13602487A8D30067F56C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
+		343E13622487A8D30067F56C /* scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = scanner.c; sourceTree = "<group>"; };
+		343E13632487A8D30067F56C /* binding.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = binding.cc; sourceTree = "<group>"; };
+		343E13642487A8D30067F56C /* node-types.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "node-types.json"; sourceTree = "<group>"; };
+		343E13662487A8D30067F56C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		343E13672487A8D30067F56C /* grammar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grammar.json; sourceTree = "<group>"; };
+		343E13682487A8D30067F56C /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
+		343E13BA2487A9C40067F56C /* queries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = queries; path = "tree-sitter-css/queries"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +55,8 @@
 		343E109A24859D3E0067F56C = {
 			isa = PBXGroup;
 			children = (
+				343E13BA2487A9C40067F56C /* queries */,
+				343E134C2487A8D30067F56C /* tree-sitter-css */,
 				343E10A524859D3E0067F56C /* css */,
 				343E10A424859D3E0067F56C /* Products */,
 			);
@@ -53,12 +74,78 @@
 			isa = PBXGroup;
 			children = (
 				343E10AE24859D500067F56C /* info.plist */,
-				343E10AF24859D500067F56C /* parser.c */,
-				343E10B024859D500067F56C /* parser.h */,
-				343E10AC24859D500067F56C /* queries */,
-				343E10AD24859D500067F56C /* scanner.c */,
 			);
 			path = css;
+			sourceTree = "<group>";
+		};
+		343E134C2487A8D30067F56C /* tree-sitter-css */ = {
+			isa = PBXGroup;
+			children = (
+				343E134D2487A8D30067F56C /* grammar.js */,
+				343E134E2487A8D30067F56C /* LICENSE */,
+				343E134F2487A8D30067F56C /* binding.gyp */,
+				343E13502487A8D30067F56C /* corpus */,
+				343E13552487A8D30067F56C /* queries */,
+				343E13572487A8D30067F56C /* index.js */,
+				343E13582487A8D30067F56C /* .appveyor.yml */,
+				343E13592487A8D30067F56C /* README.md */,
+				343E135A2487A8D30067F56C /* .gitignore */,
+				343E135B2487A8D30067F56C /* package.json */,
+				343E135C2487A8D30067F56C /* examples */,
+				343E135F2487A8D30067F56C /* .gitattributes */,
+				343E13602487A8D30067F56C /* .travis.yml */,
+				343E13612487A8D30067F56C /* src */,
+			);
+			path = "tree-sitter-css";
+			sourceTree = "<group>";
+		};
+		343E13502487A8D30067F56C /* corpus */ = {
+			isa = PBXGroup;
+			children = (
+				343E13512487A8D30067F56C /* stylesheets.txt */,
+				343E13522487A8D30067F56C /* selectors.txt */,
+				343E13532487A8D30067F56C /* declarations.txt */,
+				343E13542487A8D30067F56C /* statements.txt */,
+			);
+			path = corpus;
+			sourceTree = "<group>";
+		};
+		343E13552487A8D30067F56C /* queries */ = {
+			isa = PBXGroup;
+			children = (
+				343E13562487A8D30067F56C /* highlights.scm */,
+			);
+			path = queries;
+			sourceTree = "<group>";
+		};
+		343E135C2487A8D30067F56C /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				343E135D2487A8D30067F56C /* github.com.css */,
+				343E135E2487A8D30067F56C /* atom.io.css */,
+			);
+			path = examples;
+			sourceTree = "<group>";
+		};
+		343E13612487A8D30067F56C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				343E13622487A8D30067F56C /* scanner.c */,
+				343E13632487A8D30067F56C /* binding.cc */,
+				343E13642487A8D30067F56C /* node-types.json */,
+				343E13652487A8D30067F56C /* tree_sitter */,
+				343E13672487A8D30067F56C /* grammar.json */,
+				343E13682487A8D30067F56C /* parser.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		343E13652487A8D30067F56C /* tree_sitter */ = {
+			isa = PBXGroup;
+			children = (
+				343E13662487A8D30067F56C /* parser.h */,
+			);
+			path = tree_sitter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,8 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				343E10B324859D500067F56C /* info.plist in Resources */,
-				343E10B124859D500067F56C /* queries in Resources */,
+				343E13BB2487A9C40067F56C /* queries in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,8 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				343E10B424859D500067F56C /* parser.c in Sources */,
-				343E10B224859D500067F56C /* scanner.c in Sources */,
+				343E137A2487A8D30067F56C /* scanner.c in Sources */,
+				343E137E2487A8D30067F56C /* parser.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +338,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$PROJECT_DIR/tree-sitter-css/src";
 				INFOPLIST_FILE = css/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter.language.css;
@@ -268,6 +355,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$PROJECT_DIR/tree-sitter-css/src";
 				INFOPLIST_FILE = css/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter.language.css;

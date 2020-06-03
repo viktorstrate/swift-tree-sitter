@@ -7,19 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		343E10E924859E9C0067F56C /* queries in Resources */ = {isa = PBXBuildFile; fileRef = 343E10E524859E9C0067F56C /* queries */; };
-		343E10EA24859E9C0067F56C /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 343E10E624859E9C0067F56C /* info.plist */; };
-		343E10EB24859E9C0067F56C /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 343E10E824859E9C0067F56C /* parser.c */; };
-		343E10EF24859ECA0067F56C /* scanner.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 343E10ED24859ECA0067F56C /* scanner.c++ */; };
+		343E14842487AB3D0067F56C /* scanner.cc in Sources */ = {isa = PBXBuildFile; fileRef = 343E14672487AB3D0067F56C /* scanner.cc */; };
+		343E14852487AB3D0067F56C /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 343E14682487AB3D0067F56C /* parser.c */; };
+		343E14872487AB6D0067F56C /* queries in Resources */ = {isa = PBXBuildFile; fileRef = 343E14862487AB6D0067F56C /* queries */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		343E10DC24859E8D0067F56C /* php.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = php.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		343E10E524859E9C0067F56C /* queries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = queries; sourceTree = "<group>"; };
 		343E10E624859E9C0067F56C /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
-		343E10E724859E9C0067F56C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
-		343E10E824859E9C0067F56C /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
-		343E10ED24859ECA0067F56C /* scanner.c++ */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "scanner.c++"; sourceTree = "<group>"; };
+		343E14442487AB3D0067F56C /* .npmignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .npmignore; sourceTree = "<group>"; };
+		343E14452487AB3D0067F56C /* grammar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = grammar.js; sourceTree = "<group>"; };
+		343E14482487AB3D0067F56C /* keywords.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = keywords.php; sourceTree = "<group>"; };
+		343E14492487AB3D0067F56C /* literals.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = literals.php; sourceTree = "<group>"; };
+		343E144A2487AB3D0067F56C /* types.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = types.php; sourceTree = "<group>"; };
+		343E144C2487AB3D0067F56C /* interpolation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interpolation.txt; sourceTree = "<group>"; };
+		343E144D2487AB3D0067F56C /* literals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = literals.txt; sourceTree = "<group>"; };
+		343E144E2487AB3D0067F56C /* declarations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = declarations.txt; sourceTree = "<group>"; };
+		343E144F2487AB3D0067F56C /* statements.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = statements.txt; sourceTree = "<group>"; };
+		343E14502487AB3D0067F56C /* types.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = types.txt; sourceTree = "<group>"; };
+		343E14512487AB3D0067F56C /* expressions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = expressions.txt; sourceTree = "<group>"; };
+		343E14522487AB3D0067F56C /* binding.gyp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binding.gyp; sourceTree = "<group>"; };
+		343E14542487AB3D0067F56C /* tags.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tags.scm; sourceTree = "<group>"; };
+		343E14552487AB3D0067F56C /* highlights.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = highlights.scm; sourceTree = "<group>"; };
+		343E14562487AB3D0067F56C /* injections.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = injections.scm; sourceTree = "<group>"; };
+		343E14572487AB3D0067F56C /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		343E14592487AB3D0067F56C /* known-failures.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "known-failures.txt"; sourceTree = "<group>"; };
+		343E145A2487AB3D0067F56C /* parse-examples */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "parse-examples"; sourceTree = "<group>"; };
+		343E145B2487AB3D0067F56C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		343E145C2487AB3D0067F56C /* appveyor.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = appveyor.yml; sourceTree = "<group>"; };
+		343E145D2487AB3D0067F56C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		343E145E2487AB3D0067F56C /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		343E145F2487AB3D0067F56C /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		343E14602487AB3D0067F56C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
+		343E14622487AB3D0067F56C /* binding.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = binding.cc; sourceTree = "<group>"; };
+		343E14632487AB3D0067F56C /* node-types.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "node-types.json"; sourceTree = "<group>"; };
+		343E14652487AB3D0067F56C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		343E14662487AB3D0067F56C /* grammar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grammar.json; sourceTree = "<group>"; };
+		343E14672487AB3D0067F56C /* scanner.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scanner.cc; sourceTree = "<group>"; };
+		343E14682487AB3D0067F56C /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
+		343E14862487AB6D0067F56C /* queries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = queries; path = "tree-sitter-php/queries"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +62,8 @@
 		343E10D324859E8D0067F56C = {
 			isa = PBXGroup;
 			children = (
+				343E14862487AB6D0067F56C /* queries */,
+				343E14432487AB3D0067F56C /* tree-sitter-php */,
 				343E10DE24859E8D0067F56C /* php */,
 				343E10DD24859E8D0067F56C /* Products */,
 			);
@@ -53,12 +81,101 @@
 			isa = PBXGroup;
 			children = (
 				343E10E624859E9C0067F56C /* info.plist */,
-				343E10E824859E9C0067F56C /* parser.c */,
-				343E10E724859E9C0067F56C /* parser.h */,
-				343E10ED24859ECA0067F56C /* scanner.c++ */,
-				343E10E524859E9C0067F56C /* queries */,
 			);
 			path = php;
+			sourceTree = "<group>";
+		};
+		343E14432487AB3D0067F56C /* tree-sitter-php */ = {
+			isa = PBXGroup;
+			children = (
+				343E14442487AB3D0067F56C /* .npmignore */,
+				343E14452487AB3D0067F56C /* grammar.js */,
+				343E14462487AB3D0067F56C /* test */,
+				343E14522487AB3D0067F56C /* binding.gyp */,
+				343E14532487AB3D0067F56C /* queries */,
+				343E14572487AB3D0067F56C /* index.js */,
+				343E14582487AB3D0067F56C /* script */,
+				343E145B2487AB3D0067F56C /* README.md */,
+				343E145C2487AB3D0067F56C /* appveyor.yml */,
+				343E145D2487AB3D0067F56C /* .gitignore */,
+				343E145E2487AB3D0067F56C /* package.json */,
+				343E145F2487AB3D0067F56C /* .gitattributes */,
+				343E14602487AB3D0067F56C /* .travis.yml */,
+				343E14612487AB3D0067F56C /* src */,
+			);
+			path = "tree-sitter-php";
+			sourceTree = "<group>";
+		};
+		343E14462487AB3D0067F56C /* test */ = {
+			isa = PBXGroup;
+			children = (
+				343E14472487AB3D0067F56C /* highlight */,
+				343E144B2487AB3D0067F56C /* corpus */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		343E14472487AB3D0067F56C /* highlight */ = {
+			isa = PBXGroup;
+			children = (
+				343E14482487AB3D0067F56C /* keywords.php */,
+				343E14492487AB3D0067F56C /* literals.php */,
+				343E144A2487AB3D0067F56C /* types.php */,
+			);
+			path = highlight;
+			sourceTree = "<group>";
+		};
+		343E144B2487AB3D0067F56C /* corpus */ = {
+			isa = PBXGroup;
+			children = (
+				343E144C2487AB3D0067F56C /* interpolation.txt */,
+				343E144D2487AB3D0067F56C /* literals.txt */,
+				343E144E2487AB3D0067F56C /* declarations.txt */,
+				343E144F2487AB3D0067F56C /* statements.txt */,
+				343E14502487AB3D0067F56C /* types.txt */,
+				343E14512487AB3D0067F56C /* expressions.txt */,
+			);
+			path = corpus;
+			sourceTree = "<group>";
+		};
+		343E14532487AB3D0067F56C /* queries */ = {
+			isa = PBXGroup;
+			children = (
+				343E14542487AB3D0067F56C /* tags.scm */,
+				343E14552487AB3D0067F56C /* highlights.scm */,
+				343E14562487AB3D0067F56C /* injections.scm */,
+			);
+			path = queries;
+			sourceTree = "<group>";
+		};
+		343E14582487AB3D0067F56C /* script */ = {
+			isa = PBXGroup;
+			children = (
+				343E14592487AB3D0067F56C /* known-failures.txt */,
+				343E145A2487AB3D0067F56C /* parse-examples */,
+			);
+			path = script;
+			sourceTree = "<group>";
+		};
+		343E14612487AB3D0067F56C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				343E14622487AB3D0067F56C /* binding.cc */,
+				343E14632487AB3D0067F56C /* node-types.json */,
+				343E14642487AB3D0067F56C /* tree_sitter */,
+				343E14662487AB3D0067F56C /* grammar.json */,
+				343E14672487AB3D0067F56C /* scanner.cc */,
+				343E14682487AB3D0067F56C /* parser.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		343E14642487AB3D0067F56C /* tree_sitter */ = {
+			isa = PBXGroup;
+			children = (
+				343E14652487AB3D0067F56C /* parser.h */,
+			);
+			path = tree_sitter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,8 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				343E10EA24859E9C0067F56C /* info.plist in Resources */,
-				343E10E924859E9C0067F56C /* queries in Resources */,
+				343E14872487AB6D0067F56C /* queries in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,8 +246,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				343E10EF24859ECA0067F56C /* scanner.c++ in Sources */,
-				343E10EB24859E9C0067F56C /* parser.c in Sources */,
+				343E14842487AB3D0067F56C /* scanner.cc in Sources */,
+				343E14852487AB3D0067F56C /* parser.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +368,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$PROJECT_DIR/tree-sitter-php/src";
 				INFOPLIST_FILE = php/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter.language.php;
@@ -268,6 +385,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$PROJECT_DIR/tree-sitter-php/src";
 				INFOPLIST_FILE = php/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter.language.php;

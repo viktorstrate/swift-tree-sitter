@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34178517248004DE00843085 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34178515248004DE00843085 /* info.plist */; };
-		34178518248004DE00843085 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 34178516248004DE00843085 /* parser.c */; };
+		343E14422487AAA70067F56C /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 343E14332487AAA70067F56C /* parser.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3417850B248004D300843085 /* json.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = json.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		34178514248004DE00843085 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
 		34178515248004DE00843085 /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
-		34178516248004DE00843085 /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
+		343E14212487AAA70067F56C /* .npmignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .npmignore; sourceTree = "<group>"; };
+		343E14222487AAA70067F56C /* grammar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = grammar.js; sourceTree = "<group>"; };
+		343E14232487AAA70067F56C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		343E14242487AAA70067F56C /* binding.gyp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binding.gyp; sourceTree = "<group>"; };
+		343E14262487AAA70067F56C /* main.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.txt; sourceTree = "<group>"; };
+		343E14272487AAA70067F56C /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		343E14282487AAA70067F56C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		343E14292487AAA70067F56C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		343E142A2487AAA70067F56C /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		343E142B2487AAA70067F56C /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		343E142C2487AAA70067F56C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
+		343E142E2487AAA70067F56C /* binding.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = binding.cc; sourceTree = "<group>"; };
+		343E142F2487AAA70067F56C /* node-types.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "node-types.json"; sourceTree = "<group>"; };
+		343E14312487AAA70067F56C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		343E14322487AAA70067F56C /* grammar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grammar.json; sourceTree = "<group>"; };
+		343E14332487AAA70067F56C /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +45,7 @@
 		34178502248004D300843085 = {
 			isa = PBXGroup;
 			children = (
+				343E14202487AAA70067F56C /* tree-sitter-json */,
 				3417850D248004D300843085 /* json */,
 				3417850C248004D300843085 /* Products */,
 			);
@@ -49,10 +63,55 @@
 			isa = PBXGroup;
 			children = (
 				34178515248004DE00843085 /* info.plist */,
-				34178516248004DE00843085 /* parser.c */,
-				34178514248004DE00843085 /* parser.h */,
 			);
 			path = json;
+			sourceTree = "<group>";
+		};
+		343E14202487AAA70067F56C /* tree-sitter-json */ = {
+			isa = PBXGroup;
+			children = (
+				343E14212487AAA70067F56C /* .npmignore */,
+				343E14222487AAA70067F56C /* grammar.js */,
+				343E14232487AAA70067F56C /* LICENSE */,
+				343E14242487AAA70067F56C /* binding.gyp */,
+				343E14252487AAA70067F56C /* corpus */,
+				343E14272487AAA70067F56C /* index.js */,
+				343E14282487AAA70067F56C /* README.md */,
+				343E14292487AAA70067F56C /* .gitignore */,
+				343E142A2487AAA70067F56C /* package.json */,
+				343E142B2487AAA70067F56C /* .gitattributes */,
+				343E142C2487AAA70067F56C /* .travis.yml */,
+				343E142D2487AAA70067F56C /* src */,
+			);
+			path = "tree-sitter-json";
+			sourceTree = "<group>";
+		};
+		343E14252487AAA70067F56C /* corpus */ = {
+			isa = PBXGroup;
+			children = (
+				343E14262487AAA70067F56C /* main.txt */,
+			);
+			path = corpus;
+			sourceTree = "<group>";
+		};
+		343E142D2487AAA70067F56C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				343E142E2487AAA70067F56C /* binding.cc */,
+				343E142F2487AAA70067F56C /* node-types.json */,
+				343E14302487AAA70067F56C /* tree_sitter */,
+				343E14322487AAA70067F56C /* grammar.json */,
+				343E14332487AAA70067F56C /* parser.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		343E14302487AAA70067F56C /* tree_sitter */ = {
+			isa = PBXGroup;
+			children = (
+				343E14312487AAA70067F56C /* parser.h */,
+			);
+			path = tree_sitter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,7 +171,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34178517248004DE00843085 /* info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34178518248004DE00843085 /* parser.c in Sources */,
+				343E14422487AAA70067F56C /* parser.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +302,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$PROJECT_DIR/tree-sitter-json/src";
 				INFOPLIST_FILE = json/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter.language.json;
@@ -260,6 +319,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$PROJECT_DIR/tree-sitter-json/src";
 				INFOPLIST_FILE = json/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter.language.json;

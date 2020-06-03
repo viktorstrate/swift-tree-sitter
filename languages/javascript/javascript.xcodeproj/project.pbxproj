@@ -7,23 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		341784E2247FD37E00843085 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 341784DF247FD37E00843085 /* parser.h */; };
-		341784E3247FD37E00843085 /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 341784E0247FD37E00843085 /* scanner.c */; };
-		341784E4247FD37E00843085 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 341784E1247FD37E00843085 /* parser.c */; };
-		341784E6247FD39300843085 /* queries in Resources */ = {isa = PBXBuildFile; fileRef = 341784E5247FD39300843085 /* queries */; };
+		343E12B92487A2C50067F56C /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 343E12952487A2C50067F56C /* scanner.c */; };
+		343E12C62487A3120067F56C /* queries in Resources */ = {isa = PBXBuildFile; fileRef = 343E12C52487A3120067F56C /* queries */; };
+		343E133D2487A77C0067F56C /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 343E133C2487A77B0067F56C /* parser.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		341784B8247FD24800843085 /* javascript.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = javascript.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		341784BB247FD24800843085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		341784DF247FD37E00843085 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
-		341784E0247FD37E00843085 /* scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = scanner.c; sourceTree = "<group>"; };
-		341784E1247FD37E00843085 /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
-		341784E5247FD39300843085 /* queries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = queries; sourceTree = "<group>"; };
+		343E12712487A2C50067F56C /* .npmignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .npmignore; sourceTree = "<group>"; };
+		343E12722487A2C50067F56C /* grammar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = grammar.js; sourceTree = "<group>"; };
+		343E12732487A2C50067F56C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		343E12762487A2C50067F56C /* keywords.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = keywords.js; sourceTree = "<group>"; };
+		343E12772487A2C50067F56C /* variables.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = variables.js; sourceTree = "<group>"; };
+		343E12782487A2C50067F56C /* functions.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = functions.js; sourceTree = "<group>"; };
+		343E127A2487A2C50067F56C /* literals.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = literals.txt; sourceTree = "<group>"; };
+		343E127B2487A2C50067F56C /* statements.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = statements.txt; sourceTree = "<group>"; };
+		343E127C2487A2C50067F56C /* destructuring.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = destructuring.txt; sourceTree = "<group>"; };
+		343E127D2487A2C50067F56C /* expressions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = expressions.txt; sourceTree = "<group>"; };
+		343E127E2487A2C50067F56C /* semicolon_insertion.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = semicolon_insertion.txt; sourceTree = "<group>"; };
+		343E127F2487A2C50067F56C /* binding.gyp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = binding.gyp; sourceTree = "<group>"; };
+		343E12812487A2C50067F56C /* tags.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tags.scm; sourceTree = "<group>"; };
+		343E12822487A2C50067F56C /* locals.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = locals.scm; sourceTree = "<group>"; };
+		343E12832487A2C50067F56C /* highlights.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = highlights.scm; sourceTree = "<group>"; };
+		343E12842487A2C50067F56C /* highlights-jsx.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "highlights-jsx.scm"; sourceTree = "<group>"; };
+		343E12852487A2C50067F56C /* injections.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = injections.scm; sourceTree = "<group>"; };
+		343E12862487A2C50067F56C /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		343E12882487A2C50067F56C /* known_failures.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = known_failures.txt; sourceTree = "<group>"; };
+		343E12892487A2C50067F56C /* benchmark.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = benchmark.js; sourceTree = "<group>"; };
+		343E128A2487A2C50067F56C /* parse-examples */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "parse-examples"; sourceTree = "<group>"; };
+		343E128B2487A2C50067F56C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		343E128C2487A2C50067F56C /* appveyor.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = appveyor.yml; sourceTree = "<group>"; };
+		343E128D2487A2C50067F56C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		343E128E2487A2C50067F56C /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		343E12902487A2C50067F56C /* text-editor-component.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "text-editor-component.js"; sourceTree = "<group>"; };
+		343E12912487A2C50067F56C /* jquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
+		343E12922487A2C50067F56C /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		343E12932487A2C50067F56C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
+		343E12952487A2C50067F56C /* scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = scanner.c; sourceTree = "<group>"; };
+		343E12962487A2C50067F56C /* binding.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = binding.cc; sourceTree = "<group>"; };
+		343E12972487A2C50067F56C /* node-types.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "node-types.json"; sourceTree = "<group>"; };
+		343E12992487A2C50067F56C /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		343E129A2487A2C50067F56C /* grammar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grammar.json; sourceTree = "<group>"; };
+		343E129B2487A2C50067F56C /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
+		343E12C52487A3120067F56C /* queries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = queries; path = "tree-sitter-javascript/queries"; sourceTree = "<group>"; };
+		343E133C2487A77B0067F56C /* parser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = parser.c; path = "tree-sitter-javascript/src/parser.c"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		341784B5247FD24800843085 /* Frameworks */ = {
+		343E12C72487A6410067F56C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,6 +68,9 @@
 		341784AF247FD24800843085 = {
 			isa = PBXGroup;
 			children = (
+				343E133C2487A77B0067F56C /* parser.c */,
+				343E12C52487A3120067F56C /* queries */,
+				343E12702487A2C50067F56C /* tree-sitter-javascript */,
 				341784BA247FD24800843085 /* javascript */,
 				341784B9247FD24800843085 /* Products */,
 			);
@@ -52,13 +87,115 @@
 		341784BA247FD24800843085 /* javascript */ = {
 			isa = PBXGroup;
 			children = (
-				341784E1247FD37E00843085 /* parser.c */,
-				341784DF247FD37E00843085 /* parser.h */,
-				341784E0247FD37E00843085 /* scanner.c */,
 				341784BB247FD24800843085 /* Info.plist */,
-				341784E5247FD39300843085 /* queries */,
 			);
 			path = javascript;
+			sourceTree = "<group>";
+		};
+		343E12702487A2C50067F56C /* tree-sitter-javascript */ = {
+			isa = PBXGroup;
+			children = (
+				343E12712487A2C50067F56C /* .npmignore */,
+				343E12722487A2C50067F56C /* grammar.js */,
+				343E12732487A2C50067F56C /* LICENSE */,
+				343E12742487A2C50067F56C /* test */,
+				343E127F2487A2C50067F56C /* binding.gyp */,
+				343E12802487A2C50067F56C /* queries */,
+				343E12862487A2C50067F56C /* index.js */,
+				343E12872487A2C50067F56C /* script */,
+				343E128B2487A2C50067F56C /* README.md */,
+				343E128C2487A2C50067F56C /* appveyor.yml */,
+				343E128D2487A2C50067F56C /* .gitignore */,
+				343E128E2487A2C50067F56C /* package.json */,
+				343E128F2487A2C50067F56C /* examples */,
+				343E12922487A2C50067F56C /* .gitattributes */,
+				343E12932487A2C50067F56C /* .travis.yml */,
+				343E12942487A2C50067F56C /* src */,
+			);
+			path = "tree-sitter-javascript";
+			sourceTree = "<group>";
+		};
+		343E12742487A2C50067F56C /* test */ = {
+			isa = PBXGroup;
+			children = (
+				343E12752487A2C50067F56C /* highlight */,
+				343E12792487A2C50067F56C /* corpus */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		343E12752487A2C50067F56C /* highlight */ = {
+			isa = PBXGroup;
+			children = (
+				343E12762487A2C50067F56C /* keywords.js */,
+				343E12772487A2C50067F56C /* variables.js */,
+				343E12782487A2C50067F56C /* functions.js */,
+			);
+			path = highlight;
+			sourceTree = "<group>";
+		};
+		343E12792487A2C50067F56C /* corpus */ = {
+			isa = PBXGroup;
+			children = (
+				343E127A2487A2C50067F56C /* literals.txt */,
+				343E127B2487A2C50067F56C /* statements.txt */,
+				343E127C2487A2C50067F56C /* destructuring.txt */,
+				343E127D2487A2C50067F56C /* expressions.txt */,
+				343E127E2487A2C50067F56C /* semicolon_insertion.txt */,
+			);
+			path = corpus;
+			sourceTree = "<group>";
+		};
+		343E12802487A2C50067F56C /* queries */ = {
+			isa = PBXGroup;
+			children = (
+				343E12812487A2C50067F56C /* tags.scm */,
+				343E12822487A2C50067F56C /* locals.scm */,
+				343E12832487A2C50067F56C /* highlights.scm */,
+				343E12842487A2C50067F56C /* highlights-jsx.scm */,
+				343E12852487A2C50067F56C /* injections.scm */,
+			);
+			path = queries;
+			sourceTree = "<group>";
+		};
+		343E12872487A2C50067F56C /* script */ = {
+			isa = PBXGroup;
+			children = (
+				343E12882487A2C50067F56C /* known_failures.txt */,
+				343E12892487A2C50067F56C /* benchmark.js */,
+				343E128A2487A2C50067F56C /* parse-examples */,
+			);
+			path = script;
+			sourceTree = "<group>";
+		};
+		343E128F2487A2C50067F56C /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				343E12902487A2C50067F56C /* text-editor-component.js */,
+				343E12912487A2C50067F56C /* jquery.js */,
+			);
+			path = examples;
+			sourceTree = "<group>";
+		};
+		343E12942487A2C50067F56C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				343E12952487A2C50067F56C /* scanner.c */,
+				343E12962487A2C50067F56C /* binding.cc */,
+				343E12972487A2C50067F56C /* node-types.json */,
+				343E12982487A2C50067F56C /* tree_sitter */,
+				343E129A2487A2C50067F56C /* grammar.json */,
+				343E129B2487A2C50067F56C /* parser.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		343E12982487A2C50067F56C /* tree_sitter */ = {
+			isa = PBXGroup;
+			children = (
+				343E12992487A2C50067F56C /* parser.h */,
+			);
+			path = tree_sitter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -68,7 +205,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341784E2247FD37E00843085 /* parser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +217,7 @@
 			buildPhases = (
 				341784D0247FD2B500843085 /* Headers */,
 				341784B4247FD24800843085 /* Sources */,
-				341784B5247FD24800843085 /* Frameworks */,
+				343E12C72487A6410067F56C /* Frameworks */,
 				341784B6247FD24800843085 /* Resources */,
 			);
 			buildRules = (
@@ -130,7 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341784E6247FD39300843085 /* queries in Resources */,
+				343E12C62487A3120067F56C /* queries in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +277,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341784E4247FD37E00843085 /* parser.c in Sources */,
-				341784E3247FD37E00843085 /* scanner.c in Sources */,
+				343E12B92487A2C50067F56C /* scanner.c in Sources */,
+				343E133D2487A77C0067F56C /* parser.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +399,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$PROJECT_DIR/tree-sitter-javascript/src";
 				INFOPLIST_FILE = javascript/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter.language.javascript;
@@ -279,6 +416,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$PROJECT_DIR/tree-sitter-javascript/src";
 				INFOPLIST_FILE = javascript/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter.language.javascript;
