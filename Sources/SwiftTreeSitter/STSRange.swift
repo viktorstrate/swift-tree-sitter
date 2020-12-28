@@ -6,7 +6,11 @@
 //  Copyright © 2020 viktorstrate. All rights reserved.
 //
 
+#if _XCODE_BUILD_
+import SwiftTreeSitter.CTreeSitter
+#else
 import CTreeSitter
+#endif
 
 public struct STSRange: Equatable, Hashable {
     public let startPoint: STSPoint
