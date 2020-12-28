@@ -431,10 +431,10 @@
 		344FE2FA2479B6DA0011F2CD = {
 			isa = PBXGroup;
 			children = (
+				D13FD601259A817B00C328A8 /* Tests */,
+				D13FD5FA259A817100C328A8 /* Sources */,
 				344FE3252479B7750011F2CD /* parser.h */,
 				344FE3232479B7700011F2CD /* api.h */,
-				344FE3062479B6DA0011F2CD /* SwiftTreeSitter */,
-				344FE3112479B6DA0011F2CD /* SwiftTreeSitterTests */,
 				343E1123248797550067F56C /* tree-sitter */,
 				344FE3052479B6DA0011F2CD /* Products */,
 				343E10F22487951F0067F56C /* Frameworks */,
@@ -486,6 +486,22 @@
 				34B636A3247D785C000657AB /* QueryCursorTests.swift */,
 			);
 			path = SwiftTreeSitterTests;
+			sourceTree = "<group>";
+		};
+		D13FD5FA259A817100C328A8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				344FE3062479B6DA0011F2CD /* SwiftTreeSitter */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D13FD601259A817B00C328A8 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				344FE3112479B6DA0011F2CD /* SwiftTreeSitterTests */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

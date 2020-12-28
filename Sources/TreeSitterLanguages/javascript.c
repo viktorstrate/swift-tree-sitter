@@ -1,0 +1,1 @@
+../../languages/javascript/tree-sitter-javascript/src/parser.c

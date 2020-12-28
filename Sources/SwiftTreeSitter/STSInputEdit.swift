@@ -6,7 +6,7 @@
 //  Copyright © 2020 viktorstrate. All rights reserved.
 //
 
-import SwiftTreeSitter.CTreeSitter
+import CTreeSitter
 
 public struct STSInputEdit: Equatable, Hashable {
     public let startByte: uint

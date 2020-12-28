@@ -6,7 +6,7 @@
 //  Copyright © 2020 viktorstrate. All rights reserved.
 //
 
-import SwiftTreeSitter.CTreeSitter
+import CTreeSitter
 
 public struct STSQueryPredicate {
     public let name: String

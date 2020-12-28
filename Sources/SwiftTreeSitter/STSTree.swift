@@ -6,7 +6,7 @@
 //  Copyright © 2020 viktorstrate. All rights reserved.
 //
 
-import SwiftTreeSitter.CTreeSitter
+import CTreeSitter
 
 /// A tree that represents the syntactic structure of a source code file.
 public class STSTree: Equatable, Hashable {
