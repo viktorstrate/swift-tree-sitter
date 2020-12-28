@@ -8,7 +8,13 @@ let package = Package(
   ],
   targets: [
     .target(name: "SwiftTreeSitter", dependencies: ["CTreeSitter", "TreeSitterLanguages"]),
-    .target(name: "TreeSitterLanguages", dependencies: ["CTreeSitter"]),
+    .target(
+      name: "TreeSitterLanguages",
+      dependencies: ["CTreeSitter"],
+      cSettings: [
+        .headerSearchPath("private")
+      ]
+    ),
     .target(
       name: "CTreeSitter",
       path: "tree-sitter/lib",

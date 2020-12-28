@@ -57,6 +57,7 @@ public class STSQuery: Equatable, Hashable {
         ts_query_delete(queryPointer)
     }
     
+#if _XCODE_BUILD
     public static func loadBundledQuery(language: STSLanguage, sourceType: BundledSourceType) throws -> STSQuery? {
         
         let name: String
@@ -89,6 +90,7 @@ public class STSQuery: Equatable, Hashable {
         case tags
         case custom(name: String)
     }
+#endif
     
     /// Number of patterns the query contains
     public var patternCount: uint {

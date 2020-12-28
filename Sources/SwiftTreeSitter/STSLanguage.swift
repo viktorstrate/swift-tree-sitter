@@ -207,12 +207,18 @@ public class STSLanguage: Equatable, Hashable {
     }
     
     public static func == (lhs: STSLanguage, rhs: STSLanguage) -> Bool {
+#if os(WASI)
+        return lhs.languagePointer == rhs.languagePointer
+#else
         return lhs.languagePointer == rhs.languagePointer &&
             lhs.bundle == rhs.bundle
+#endif
     }
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(languagePointer)
+#if !os(WASI)
         hasher.combine(bundle)
+#endif
     }
 }
