@@ -1,0 +1,1 @@
+../../languages/html/tree-sitter-html/src/scanner.cc
