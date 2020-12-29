@@ -16,6 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: Run the test suite on macOS ${{ matrix.macVersion }}
         shell: bash
         run: |
@@ -32,6 +34,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: Run the test suite on Ubuntu ${{ matrix.ubuntuVersion }}
         shell: bash
         run: |
