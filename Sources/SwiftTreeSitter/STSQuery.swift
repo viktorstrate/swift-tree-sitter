@@ -6,7 +6,11 @@
 //  Copyright © 2020 viktorstrate. All rights reserved.
 //
 
+#if _XCODE_BUILD_
 import SwiftTreeSitter.CTreeSitter
+#else
+import CTreeSitter
+#endif
 
 public class STSQuery: Equatable, Hashable {
     
@@ -57,6 +61,7 @@ public class STSQuery: Equatable, Hashable {
         ts_query_delete(queryPointer)
     }
     
+#if _XCODE_BUILD_
     public static func loadBundledQuery(language: STSLanguage, sourceType: BundledSourceType) throws -> STSQuery? {
         
         let name: String
@@ -89,6 +94,7 @@ public class STSQuery: Equatable, Hashable {
         case tags
         case custom(name: String)
     }
+#endif
     
     /// Number of patterns the query contains
     public var patternCount: uint {

@@ -5,3 +5,4 @@ SwiftTreeSitter/libtree-sitter.a
 xcuserdata/
 
 .DS_Store
+.build

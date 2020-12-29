@@ -6,7 +6,12 @@
 //  Copyright © 2020 viktorstrate. All rights reserved.
 //
 
+import Foundation
+#if _XCODE_BUILD_
 import SwiftTreeSitter.CTreeSitter
+#else
+import CTreeSitter
+#endif
 
 /// Used to produce `STSTree`s from source code
 public class STSParser: Equatable, Hashable {

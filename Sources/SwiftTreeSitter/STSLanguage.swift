@@ -6,7 +6,13 @@
 //  Copyright © 2020 viktorstrate. All rights reserved.
 //
 
+#if _XCODE_BUILD_
 import SwiftTreeSitter.CTreeSitter
+#else
+import CTreeSitter
+import TreeSitterLanguages
+#endif
+import Foundation
 
 public class STSLanguage: Equatable, Hashable {
     
@@ -116,7 +122,8 @@ public class STSLanguage: Equatable, Hashable {
         case javascript = "javascript"
         case json = "json"
         case php = "php"
-        
+
+#if _XCODE_BUILD_
         public func bundle() throws -> Bundle {
             let languageName = self.rawValue
             
@@ -128,8 +135,9 @@ public class STSLanguage: Equatable, Hashable {
             
             return Bundle(path: bundlePath)!
         }
+#endif
     }
-    
+
     /**
      Initialize a language from one of the pre-bundled ones.
      
@@ -140,10 +148,28 @@ public class STSLanguage: Equatable, Hashable {
      ```
      */
     public convenience init(fromPreBundle preBundle: PrebundledLanguage) throws {
+#if _XCODE_BUILD_
         let bundle = try preBundle.bundle()
         try self.init(fromBundle: bundle)
+#else
+        switch preBundle {
+        case .css:
+            self.init(pointer: tree_sitter_css())
+        case .html:
+            self.init(pointer: tree_sitter_html())
+        case .java:
+            self.init(pointer: tree_sitter_java())
+        case .javascript:
+            self.init(pointer: tree_sitter_javascript())
+        case .json:
+            self.init(pointer: tree_sitter_json())
+        case .php:
+            self.init(pointer: tree_sitter_php())
+        }
+#endif
     }
     
+#if _XCODE_BUILD_
     /// Initialize a language from the given language bundle.
     public convenience init(fromBundle bundle: Bundle) throws {
         
@@ -177,6 +203,7 @@ public class STSLanguage: Equatable, Hashable {
         
         self.bundle = bundle
     }
+#endif
     
     enum LanguageError: Error {
         case prebundledBundleNotFound
@@ -184,12 +211,18 @@ public class STSLanguage: Equatable, Hashable {
     }
     
     public static func == (lhs: STSLanguage, rhs: STSLanguage) -> Bool {
+#if os(WASI)
+        return lhs.languagePointer == rhs.languagePointer
+#else
         return lhs.languagePointer == rhs.languagePointer &&
             lhs.bundle == rhs.bundle
+#endif
     }
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(languagePointer)
+#if !os(WASI)
         hasher.combine(bundle)
+#endif
     }
 }

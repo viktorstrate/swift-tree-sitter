@@ -56,6 +56,7 @@ class QueryTests: XCTestCase {
         XCTAssertEqual(query.stringCount, 0)
     }
     
+#if _XCODE_BUILD_
     func testLoadingQueryFromBundle() throws {
         let language = try STSLanguage(fromPreBundle: .javascript)
         
@@ -66,4 +67,5 @@ class QueryTests: XCTestCase {
                                                           sourceType: .custom(name: "highlights-jsx"))
         XCTAssertNotNil(highlightsJsx)
     }
+#endif
 }

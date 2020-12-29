@@ -431,10 +431,10 @@
 		344FE2FA2479B6DA0011F2CD = {
 			isa = PBXGroup;
 			children = (
+				D13FD601259A817B00C328A8 /* Tests */,
+				D13FD5FA259A817100C328A8 /* Sources */,
 				344FE3252479B7750011F2CD /* parser.h */,
 				344FE3232479B7700011F2CD /* api.h */,
-				344FE3062479B6DA0011F2CD /* SwiftTreeSitter */,
-				344FE3112479B6DA0011F2CD /* SwiftTreeSitterTests */,
 				343E1123248797550067F56C /* tree-sitter */,
 				344FE3052479B6DA0011F2CD /* Products */,
 				343E10F22487951F0067F56C /* Frameworks */,
@@ -486,6 +486,22 @@
 				34B636A3247D785C000657AB /* QueryCursorTests.swift */,
 			);
 			path = SwiftTreeSitterTests;
+			sourceTree = "<group>";
+		};
+		D13FD5FA259A817100C328A8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				344FE3062479B6DA0011F2CD /* SwiftTreeSitter */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D13FD601259A817B00C328A8 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				344FE3112479B6DA0011F2CD /* SwiftTreeSitterTests */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -865,6 +881,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D _XCODE_BUILD_";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -923,6 +940,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "-D _XCODE_BUILD_";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -945,7 +963,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftTreeSitter/Info.plist;
+				INFOPLIST_FILE = Sources/SwiftTreeSitter/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -958,7 +976,7 @@
 					"$(PROJECT_DIR)/SwiftTreeSitter",
 					"$(PROJECT_DIR)",
 				);
-				MODULEMAP_FILE = $SRCROOT/SwiftTreeSitter/SwiftTreeSitter.modulemap;
+				MODULEMAP_FILE = $SRCROOT/Sources/SwiftTreeSitter/SwiftTreeSitter.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -980,7 +998,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftTreeSitter/Info.plist;
+				INFOPLIST_FILE = Sources/SwiftTreeSitter/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -993,7 +1011,7 @@
 					"$(PROJECT_DIR)/SwiftTreeSitter",
 					"$(PROJECT_DIR)",
 				);
-				MODULEMAP_FILE = $SRCROOT/SwiftTreeSitter/SwiftTreeSitter.modulemap;
+				MODULEMAP_FILE = $SRCROOT/Sources/SwiftTreeSitter/SwiftTreeSitter.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.viktorstrate.SwiftTreeSitter;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1008,7 +1026,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SwiftTreeSitterTests/Info.plist;
+				INFOPLIST_FILE = Tests/SwiftTreeSitterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1030,7 +1048,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SwiftTreeSitterTests/Info.plist;
+				INFOPLIST_FILE = Tests/SwiftTreeSitterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
