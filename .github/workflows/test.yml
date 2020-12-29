@@ -12,11 +12,11 @@ jobs:
       matrix:
         macVersion: [11.0, 10.15]
 
-    runs-on: macos-${{ macVersion }}
+    runs-on: macos-${{ matrix.macVersion }}
 
     steps:
       - uses: actions/checkout@v2
-      - name: Run the test suite on macOS ${{ macVersion }}
+      - name: Run the test suite on macOS ${{ matrix.macVersion }}
         shell: bash
         run: |
           set -ex
@@ -28,11 +28,11 @@ jobs:
       matrix:
         ubuntuVersion: [18.04, 20.04]
 
-    runs-on: ubuntu-${{ ubuntuVersion }}
+    runs-on: ubuntu-${{ matrix.ubuntuVersion }}
 
     steps:
       - uses: actions/checkout@v2
-      - name: Run the test suite on Ubuntu ${{ ubuntuVersion }}
+      - name: Run the test suite on Ubuntu ${{ matrix.ubuntuVersion }}
         shell: bash
         run: |
           set -ex
