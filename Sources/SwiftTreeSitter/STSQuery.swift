@@ -61,7 +61,7 @@ public class STSQuery: Equatable, Hashable {
         ts_query_delete(queryPointer)
     }
     
-#if _XCODE_BUILD
+#if _XCODE_BUILD_
     public static func loadBundledQuery(language: STSLanguage, sourceType: BundledSourceType) throws -> STSQuery? {
         
         let name: String
