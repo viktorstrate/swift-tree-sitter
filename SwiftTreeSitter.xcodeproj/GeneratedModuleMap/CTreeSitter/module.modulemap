@@ -1,0 +1,4 @@
+module CTreeSitter {
+    umbrella "/Users/viktorstrate/Development/xcode/swift-tree-sitter/tree-sitter/lib/include"
+    export *
+}

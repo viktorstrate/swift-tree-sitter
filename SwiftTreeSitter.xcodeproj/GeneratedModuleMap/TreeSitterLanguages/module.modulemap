@@ -1,0 +1,4 @@
+module TreeSitterLanguages {
+    umbrella "/Users/viktorstrate/Development/xcode/swift-tree-sitter/Sources/TreeSitterLanguages/include"
+    export *
+}
