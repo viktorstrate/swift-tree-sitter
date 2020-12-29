@@ -1,4 +1,4 @@
-# swift-tree-sitter
+# Swift Tree Sitter
 
 This module provides Swift bindings for the [tree-sitter](https://tree-sitter.github.io) parsing library
 
@@ -50,7 +50,7 @@ print(tree.rootNode.sExpressionString!)
 //         arguments: (arguments (identifier)))))
 ```
 
-Expect the syntax tree.
+Inspect the syntax tree.
 
 ```swift
 let callExpression = tree.rootNode.child(at: 1).firstChild(forOffset: 0)
