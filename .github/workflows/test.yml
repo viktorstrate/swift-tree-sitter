@@ -10,7 +10,7 @@ jobs:
     name: Test macOS
     strategy:
       matrix:
-        macVersion: [11.0, 10.15]
+        macVersion: ["11.0", "10.15"]
 
     runs-on: macos-${{ matrix.macVersion }}
 
@@ -28,7 +28,7 @@ jobs:
     name: Test Ubuntu
     strategy:
       matrix:
-        ubuntuVersion: [18.04, 20.04]
+        ubuntuVersion: ["18.04", "20.04"]
 
     runs-on: ubuntu-${{ matrix.ubuntuVersion }}
 
