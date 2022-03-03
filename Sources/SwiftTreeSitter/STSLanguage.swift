@@ -57,7 +57,7 @@ public class STSLanguage: Equatable, Hashable {
     /// Get the numerical id for the given node type string.
     public func symbolId(forName name: String, isNamed: Bool) -> uint {
         let result = name.withCString { (cstr) -> UInt16 in
-            ts_language_symbol_for_name(languagePointer, cstr, uint(name.count), isNamed)
+            ts_language_symbol_for_name(languagePointer, cstr, uint(name.utf8.count), isNamed)
         }
         
         return uint(result)
@@ -99,7 +99,7 @@ public class STSLanguage: Equatable, Hashable {
     /// Get the field name string for the given numerical id.
     public func fieldId(forName name: String) -> uint {
         let result = name.withCString { (cstr) -> UInt16 in
-            ts_language_field_id_for_name(languagePointer, cstr, uint(name.count))
+            ts_language_field_id_for_name(languagePointer, cstr, uint(name.utf8.count))
         }
         
         return uint(result)

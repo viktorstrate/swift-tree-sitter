@@ -132,7 +132,7 @@ public class STSParser: Equatable, Hashable {
     /// Parses a string, returning a `STSTree` representing the AST for the given string.
     public func parse(string: String, oldTree: STSTree?) -> STSTree? {
         let treePointer = string.withCString { (stringPtr) -> OpaquePointer? in
-            return ts_parser_parse_string(parserPointer, oldTree?.treePointer, stringPtr, UInt32(string.count))
+            return ts_parser_parse_string(parserPointer, oldTree?.treePointer, stringPtr, UInt32(string.utf8.count))
         }
         
         if let treePointer = treePointer {

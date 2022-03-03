@@ -39,7 +39,7 @@ public class STSQuery: Equatable, Hashable {
         }
         
         let pointer = source.withCString { (cstr) -> OpaquePointer? in
-            ts_query_new(language.languagePointer, cstr, UInt32(source.count), errorOffset, errorType)
+            ts_query_new(language.languagePointer, cstr, UInt32(source.utf8.count), errorOffset, errorType)
         }
         
         switch errorType.pointee.rawValue {
